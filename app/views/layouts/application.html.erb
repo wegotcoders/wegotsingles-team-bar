@@ -2,13 +2,19 @@
 <html>
 <head>
   <title>Wegotsingles</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+	<nav>
+		<h1 id="main-logo">We Got Singles</h1>
+	</nav>
+
+	<main>
+		<%= yield %>
+	</main>
 
 </body>
 </html>
