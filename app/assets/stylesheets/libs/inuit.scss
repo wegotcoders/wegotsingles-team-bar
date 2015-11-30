@@ -1,0 +1,58 @@
+//SPACING
+$inuit-enable-margins: true;
+$inuit-enable-margins--none: true;
+$inuit-enable-margins--small: true;
+$inuit-enable-margins--large: true;
+$inuit-enable-paddings: true;
+$inuit-enable-paddings--none: true;
+$inuit-enable-paddings--small: true;
+$inuit-enable-paddings--large: true;
+$inuit-use-fractions: false;
+
+// WIDTHS
+$inuit-widths-columns: (
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11,
+  12
+) !default;
+
+// Settings: Global variables, site-wide settings, config switches, etc.
+@import "inuit-defaults/settings.defaults";
+
+// Tools: Site-wide mixins and functions.
+@import "inuit-functions/tools.functions";
+@import "inuit-mixins/tools.mixins";
+@import "inuit-tools-widths/tools.widths";
+
+// Generic: Low-specificity, far-reaching rulesets (e.g. resets).
+@import "inuit-normalize/generic.normalize";
+@import "inuit-box-sizing/generic.box-sizing";
+
+// Base: Unclassed HTML elements (e.g. a {}, blockquote {}, address {}).
+@import "inuit-page/base.page";
+@import "inuit-images/base.images";
+@import "inuit-lists/base.lists";
+
+//Headings
+@import "inuit-headings/base.headings";
+
+// Objects: Objects, abstractions, and design patterns (e.g. .media {}).
+@import "inuit-layout/objects.layout";
+@import "inuit-buttons/objects.buttons";
+@import "inuit-list-bare/objects.list-bare";
+
+// Components: Discrete, complete chunks of UI (e.g. .carousel {}). This is the one layer that inuitcss doesn’t get involved with.
+
+// Trumps: High-specificity, very explicit selectors. Overrides and helper classes (e.g. .hidden {}).
+@import "inuit-widths/trumps.widths";
+@import "inuit-spacing/trumps.spacing";
+@import "inuit-clearfix/trumps.clearfix";
