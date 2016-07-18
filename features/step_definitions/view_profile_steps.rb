@@ -1,6 +1,6 @@
 Given(/^A customer has previously registered$/) do
   Customer = Struct.new(:id, :name, :password, :password_confirmation)
-  @customer = Customer.new(:id => 1, :name => Faker::Name.first_name :password => "12345",  :password_confirmation => "12345")
+  @customer = Customer.new(:id => 1, :name => Faker::Name.first_name, :password => "12345",  :password_confirmation => "12345")
 end
 
 Given(/^They have created a profile$/) do
