@@ -18,8 +18,9 @@ ActiveRecord::Schema.define(version: 20160718153017) do
 
   create_table "profiles", force: :cascade do |t|
     t.string   "star_sign"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "customer_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
 end
