@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails'
+gem 'rails', '~> 4.0'
 gem 'pg'
 gem 'sass-rails'
 gem 'uglifier', '>= 1.3.0'
@@ -8,7 +8,7 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'spring', group: :development
-gem 'inuit-rails', git: 'https://github.com/dmgarland/inuit-rails'
+gem 'inuit-rails', git: 'https://github.com/wegotcoders/inuit-rails'
 
 group :development, :test do
   gem 'rspec-rails'
