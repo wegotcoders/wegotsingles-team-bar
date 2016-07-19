@@ -19,6 +19,10 @@
       <%= f.label "Do you smoke?" %>
       <%= f.check_box 'smoker' %>
     </fieldset>
+    <fieldset>
+      <%= f.label "Select your Star Sign" %>
+      <%= f.select :star_sign, Profile::STAR_SIGNS %>
+    </fieldset>>
     <%= f.submit "Save" %>
   <% end %>
 

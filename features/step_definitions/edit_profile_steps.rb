@@ -30,6 +30,10 @@ When(/^They enter the changes to their user desires$/) do
   fill_in "profile_desires", with: "These are my new desires"
 end
 
+When(/^They select their star sign$/) do
+  select("Pisces", from: "profile_star_sign")
+end
+
 When(/^They click the "([^"]*)" link$/) do |link|
   click_link link
 end
