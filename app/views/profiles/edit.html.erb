@@ -15,7 +15,10 @@
       <%= f.label :desires %>
       <%= f.text_area :desires %>
     </fieldset>
-
+    <fieldset>
+      <%= f.label "Do you smoke?" %>
+      <%= f.check_box 'smoker' %>
+    </fieldset>
     <%= f.submit "Save" %>
   <% end %>
 

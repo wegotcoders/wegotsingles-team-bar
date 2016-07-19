@@ -18,6 +18,10 @@ When(/^They enter their drinking status$/) do
   check "profile_drinker"
 end
 
+When(/^They enter their smoking status$/) do
+  check "profile_smoker"
+end
+
 When(/^They enter the changes to their user biography$/) do
   fill_in "profile_biography", with: "This is my new Biography"
 end

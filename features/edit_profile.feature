@@ -20,10 +20,16 @@ Feature: Edit profile
       And They click "Save"
     Then They see the message "Your profile has been successfuly updated!"
 
-  @wip
   Scenario: A customer enters their desires
     Given They are on the edit profile page
       And The desires field is prepopulated with their disires
     When They enter the changes to their user desires
       And They click "Save"
     Then They see the message "Your profile has been successfuly updated!"
+
+  Scenario: A custpmer indicates whether they smoke on their profile
+    Given They are on the edit profile page
+    When They enter their smoking status
+      And They click "Save"
+    Then They see the message "Your profile has been successfuly updated!"
+    
