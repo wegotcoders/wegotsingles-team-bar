@@ -2,14 +2,15 @@
 <%= form_tag('/profiles/search_results', method: :get, class: "search-form") %>
  
   <fieldset>
-    <%= label(:gender, :male) %>
-    <%= radio_button_tag 'search[gender]', 0 %>
-
-    <%= label(:gender, :female) %>
-    <%= radio_button_tag 'search[gender]', 1 %>
-
-    <%= label(:gender, :transgender) %>
-    <%= radio_button_tag 'search[gender]', 2 %>
+    <%= label_tag(:filter_gender, "Gender") %>
+    <%= select_tag("search[gender]", options_for_select(
+        [
+          ['Male', 0],
+          ['Female', 1],
+          ['Transgender', 2]
+        ]
+      ), class: "form-control"
+    ) %>
   </fieldset>
   
-  <%= submit_tag("Search", class: "btn btn-info") %>
+  <%= submit_tag("Search", class: "btn btn-info mt-10") %>

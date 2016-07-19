@@ -1,5 +1,7 @@
 <div class="row">
 	<div class="col-sm-3">
+	  <h3>Filter results by:</h3>
+	  
 		<%= form_tag('/profiles/search_results', method: :get) %>
       <%= label_tag(:filter_gender, "Gender") %>
       <%= select_tag("search[gender]", options_for_select(
@@ -23,10 +25,12 @@
 				), class: "form-control"
 			) %>
 
-			<%= submit_tag("Filter Results", class: "btn btn-info") %>
+			<%= submit_tag("Filter Results", class: "btn btn-info mt-10 form-control") %>
 	</div>
 
 	<div class="col-sm-9">
+	  <h2>Search results:</h2>
+	
 		<% @profile_results.each do |profile_result| %>
   		<h3><%= profile_result.username %></h3>
 		<% end %>		
