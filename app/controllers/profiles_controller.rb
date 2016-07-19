@@ -1,7 +1,7 @@
 class ProfilesController < ApplicationController
+  before_filter :find_profile
 
   def show
-    find_profile
   end
 
   def search_gender(term)
@@ -13,12 +13,9 @@ class ProfilesController < ApplicationController
   end
 
   def edit
-    find_profile
   end
 
   def update
-    @profile = find_profile
-
     if @profile.update(get_profile_update_params)
       flash[:notice] = "Your profile has been successfuly updated!"
     else
@@ -35,7 +32,9 @@ class ProfilesController < ApplicationController
   private
 
   def find_profile
-    @profile = Profile.find(params[:id])
+    if params[:id]
+      @profile = Profile.find(params[:id])
+    end
   end
 
   def get_profile_update_params

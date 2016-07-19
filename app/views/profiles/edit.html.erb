@@ -2,18 +2,13 @@
   <h1>Your Profile</h1>
   <div class="col-xs-12">
 
-
   <%= form_for @profile do |f| %>
     <fieldset>
-      <%= f.label "I drink" %>
-      <%= f.radio_button 'drinker', true %>
-      <%= f.label "I don't drink" %>
-      <%= f.radio_button 'drinker', false %>
+      <%= f.label "Do you drink?" %>
+      <%= f.check_box 'drinker' %>
     </fieldset>
     <%= f.submit "Save" %>
   <% end %>
-
-
 
   </div>
 </div>

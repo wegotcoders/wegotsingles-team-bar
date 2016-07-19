@@ -7,7 +7,7 @@ Given(/^They are on the edit profile page$/) do
 end
 
 When(/^They enter their drinking status$/) do
-  choose "profile_drinker_true"
+  check "profile_drinker"
 end
 
 When(/^They click the "([^"]*)" link$/) do |link|
@@ -20,4 +20,5 @@ end
 
 Then(/^They see the message "([^"]*)"$/) do |arg1|
   page.should have_selector ".alert", text:"Your profile has been successfuly updated!"
+
 end
