@@ -1,0 +1,23 @@
+Given(/^They are on their profile page$/) do
+  visit "/profiles/#{@profile.id}"
+end
+
+Given(/^They are on the edit profile page$/) do
+  expect(page).to have_content("Your Profile")
+end
+
+When(/^They enter their drinking status$/) do
+  choose "profile_drinker_true"
+end
+
+When(/^They click the "([^"]*)" link$/) do |link|
+  click_link link
+end
+
+When(/^They click "([^"]*)"$/) do |button|
+  click_button button
+end
+
+Then(/^They see the message "([^"]*)"$/) do |arg1|
+  page.should have_selector ".alert", text:"Your profile has been successfuly updated!"
+end
