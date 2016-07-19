@@ -1,8 +1,18 @@
 <div class="row">
 	<div class="col-sm-3">
 		<%= form_tag('/profiles/search_results', method: :get) %>
-			<%= label_tag(:filter_ethnicity, "Ethnicity") %>
-			<%= select_tag(:filter_ethnicity,options_for_select(
+      <%= label_tag(:filter_gender, "Gender") %>
+      <%= select_tag("search[gender]", options_for_select(
+					[
+            ['Male', 0],
+            ['Female', 1],
+            ['Transgender', 2]
+            ], params[:search]["gender"].to_i
+				), class: "form-control"
+			) %>
+			
+		  <%= label_tag(:filter_ethnicity, "Ethnicity") %>
+      <%= select_tag("search[ethnicity]", options_for_select(
 					[
 						['Caucasian', 0],
 						['Black', 1],
@@ -10,7 +20,7 @@
 						['Indian', 3],
 						['Middle Eastern', 4]
 					]
-				)
+				), class: "form-control"
 			) %>
 
 			<%= submit_tag("Filter Results", class: "btn btn-info") %>

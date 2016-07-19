@@ -1,5 +1,4 @@
 class Profile < ActiveRecord::Base
   enum gender: [:male, :female, :transgender]
-  scope :gender, -> (gender) { where gender: gender }
-  scope :username, -> (username) { where username: username }
+  enum ethnicity: [:caucasian, :black, :hispanic, :indian, :middle_eastern]
 end
