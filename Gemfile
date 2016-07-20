@@ -6,6 +6,7 @@ gem 'sass-rails'
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
+gem 'carrierwave'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'spring', group: :development
 #gem 'inuit-rails', git: 'https://github.com/wegotcoders/inuit-rails'
@@ -19,5 +20,4 @@ group :development, :test do
   gem 'cucumber-rails', :require => false
   gem 'database_cleaner'
   gem 'launchy'
-  gem 'carrierwave'
 end

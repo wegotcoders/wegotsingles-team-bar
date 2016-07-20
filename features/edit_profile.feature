@@ -12,7 +12,7 @@ Feature: Edit profile
     When They enter their drinking status
       And They click "Save"
     Then They see the message "Your profile has been updated!"  
-@wip
+
   Scenario: A customer sets a photo to their main profile page
     Given They click the "Edit Profile" link
       And They are on the edit profile page

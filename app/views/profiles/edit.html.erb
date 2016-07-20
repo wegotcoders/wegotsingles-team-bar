@@ -8,6 +8,7 @@
       <%= f.check_box 'drinker' %>
     </fieldset>
     <fieldset>
+      <%= image_tag(@profile.avatar_url) if @profile.avatar? %>
       <%= f.label "Upload your Avatar" %>
       <%= f.file_field 'avatar'%>
     </fieldset>
