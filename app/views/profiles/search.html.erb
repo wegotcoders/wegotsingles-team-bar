@@ -1,15 +1,9 @@
 <h3>Search by Gender:</h3>
+
 <%= form_tag('/profiles/search_results', method: :get, class: "search-form") %>
- 
   <fieldset>
-    <%= label(:gender, :male) %>
-    <%= radio_button_tag 'gender', 0 %>
-
-    <%= label(:gender, :female) %>
-    <%= radio_button_tag 'gender', 1 %>
-
-    <%= label(:gender, :transgender) %>
-    <%= radio_button_tag 'gender', 2 %>
+    <%= label_tag("search[gender]", "Gender", for: "search[gender]") %>
+    <%= select_tag("search[gender]", gender_options, class: "form-control") %>
   </fieldset>
   
-  <%= submit_tag("Search", class: "btn btn-info") %>
+  <%= submit_tag("Search", class: "btn btn-info mt-10") %>
