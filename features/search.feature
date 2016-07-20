@@ -3,18 +3,16 @@ Feature: Searching
   Background: 
     Given there are some registered profiles
       And they are on the search page
+      And they fill in the search form with a gender preference
+      And they click on 'Search'
 
   Scenario: Searching by gender
-    When they fill in the search form with a gender preference
-      And they click on 'Search'
     Then they should see a list of relevant results
-@wip
+
   Scenario: Filtering by Ethnicity
-    When they fill in the search form with a gender preference
-      And they click on 'Search'
-      And they filter by Ethnicity
+    When they filter by Ethnicity
     Then they should only see results relevant to ethnicity filter
 
-
-
-    
+  Scenario: Filtering by age range
+    When they filter by age range
+    Then they should only see results relevant to age range filter

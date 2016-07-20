@@ -3,27 +3,17 @@
 	  <h3>Filter results by:</h3>
 	  
 		<%= form_tag('/profiles/search_results', method: :get) %>
-      <%= label_tag(:filter_gender, "Gender") %>
-      <%= select_tag("search[gender]", options_for_select(
-					[
-            ['Male', 0],
-            ['Female', 1],
-            ['Transgender', 2]
-            ], params[:search]["gender"].to_i
-				), class: "form-control"
-			) %>
-			
-		  <%= label_tag(:filter_ethnicity, "Ethnicity") %>
-      <%= select_tag("search[ethnicity]", options_for_select(
-					[
-						['Caucasian', 0],
-						['Black', 1],
-						['Hispanic', 2],
-						['Indian', 3],
-						['Middle Eastern', 4]
-					]
-				), class: "form-control"
-			) %>
+      <%= label_tag("search[gender]", "Gender", for: "search[gender]") %>
+      <%= select_tag("search[gender]", gender_options, class: "form-control") %>
+
+      <%= label_tag("search[ethnicity]", "Ethnicity", for: "search[ethnicity]") %>
+      <%= select_tag("search[ethnicity]", ethnicity_options, class: "form-control") %>
+
+      <%= label_tag("search[min_age]", "Min. Age", for: "search[min_age]") %>
+      <%= number_field_tag("search[min_age]", params[:search][:min_age], class: "form-control") %>
+
+      <%= label_tag("search[max_age]", "Max. Age", for: "search[max_age]") %>
+      <%= number_field_tag("search[max_age]", params[:search][:max_age], class: "form-control") %>
 
 			<%= submit_tag("Filter Results", class: "btn btn-info mt-10 form-control") %>
 	</div>
@@ -36,7 +26,7 @@
 		<% end %>		
 	</div>
 </div>
-
+  
 
 
 

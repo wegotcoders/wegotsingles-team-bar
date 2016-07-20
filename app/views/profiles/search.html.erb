@@ -2,15 +2,8 @@
 <%= form_tag('/profiles/search_results', method: :get, class: "search-form") %>
  
   <fieldset>
-    <%= label_tag(:filter_gender, "Gender") %>
-    <%= select_tag("search[gender]", options_for_select(
-        [
-          ['Male', 0],
-          ['Female', 1],
-          ['Transgender', 2]
-        ]
-      ), class: "form-control"
-    ) %>
+    <%= label_tag("search[gender]", "Gender", for: "search[gender]") %>
+    <%= select_tag("search[gender]", gender_options, class: "form-control") %>
   </fieldset>
   
   <%= submit_tag("Search", class: "btn btn-info mt-10") %>

@@ -22,4 +22,9 @@ module ApplicationHelper
       ['Middle Eastern', 4]
     ], get_pre_selected_option("ethnicity", nil))
   end
+  
+  def age(dob)
+    now = Time.now.utc.to_date
+    now.year - dob.year - ((now.month > dob.month || (now.month == dob.month && now.day >= dob.day)) ? 0 : 1)
+  end
 end
