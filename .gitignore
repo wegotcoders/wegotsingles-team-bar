@@ -18,6 +18,3 @@
 
 # Ignore vim backup files
 *.swp
-
-# Ignore schema.rb file
-db/schema.rb
