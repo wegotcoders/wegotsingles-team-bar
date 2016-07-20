@@ -1,5 +1,32 @@
-<% @profile_results.each do |profile_result| %>
-  <h3><%= profile_result.username %></h3>
-<% end %>
+<div class="row">
+	<div class="col-sm-3">
+	  <h3>Filter results by:</h3>
+	  
+		<%= form_tag('/profiles/search_results', method: :get) %>
+      <%= label_tag("search[gender]", "Gender", for: "search[gender]") %>
+      <%= select_tag("search[gender]", gender_options, class: "form-control") %>
+
+      <%= label_tag("search[ethnicity]", "Ethnicity", for: "search[ethnicity]") %>
+      <%= select_tag("search[ethnicity]", ethnicity_options, class: "form-control") %>
+
+      <%= label_tag("search[min_age]", "Min. Age", for: "search[min_age]") %>
+      <%= number_field_tag("search[min_age]", params[:search][:min_age], class: "form-control") %>
+
+      <%= label_tag("search[max_age]", "Max. Age", for: "search[max_age]") %>
+      <%= number_field_tag("search[max_age]", params[:search][:max_age], class: "form-control") %>
+
+			<%= submit_tag("Filter Results", class: "btn btn-info mt-10 form-control") %>
+	</div>
+
+	<div class="col-sm-9">
+	  <h2>Search results:</h2>
+	
+		<% @profile_results.each do |profile_result| %>
+  		<h3><%= profile_result.username %></h3>
+		<% end %>		
+	</div>
+</div>
+  
+
 
 
