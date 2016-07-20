@@ -19,7 +19,7 @@ When(/^They click "([^"]*)"$/) do |button|
 end
 
 When(/^They upload the image$/) do
-  attach_file('profile_avatar', '/Users/supiash/Desktop/pokemon.jpg')
+  attach_file('profile[avatars][]', '/Users/supiash/Desktop/pokemon.jpg')
 end
 
 Then(/^They see the message "([^"]*)"$/) do |arg1|

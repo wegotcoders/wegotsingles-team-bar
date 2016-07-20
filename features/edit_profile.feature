@@ -12,8 +12,8 @@ Feature: Edit profile
     When They enter their drinking status
       And They click "Save"
     Then They see the message "Your profile has been updated!"  
-
-  Scenario: A customer sets a photo to their main profile page
+    
+  Scenario: A customer adds an image to their list of images
     Given They click the "Edit Profile" link
       And They are on the edit profile page
     When They upload the image

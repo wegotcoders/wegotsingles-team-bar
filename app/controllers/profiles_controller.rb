@@ -16,8 +16,8 @@ class ProfilesController < ApplicationController
   end
 
   def update
-    if @profile.update(get_profile_update_params)
-      flash[:notice] = "Your profile has been successfuly updated!"
+    if @profile.update(get_profile_update_params) 
+      flash[:notice] = "Your profile has been successfuly updated!" 
     else
       flash[:error] = "Oops something went wrong :("
     end
@@ -38,8 +38,12 @@ class ProfilesController < ApplicationController
   end
 
   def get_profile_update_params
+    add_images(params[:profile][:avatars]) if params[:profile][:avatars]
     params.require(:profile).permit(:drinker)
-    params.require(:profile).permit(:avatar)   
+  end
+
+  def add_images(new_image)
+    @profile.avatars+=new_image
   end
 
 end
