@@ -30,19 +30,19 @@ class ProfilesController < ApplicationController
   def search_profiles(params)
     all = Profile.unscoped
     
-    if params["ethnicity"].blank?
+    if params["ethnicity"] && params["ethnicity"] != ""
       all = all.where(ethnicity: params["ethnicity"])
     end
     
-    if params["gender"].blank?
+    if params["gender"] && params["gender"] != ""
       all = all.where(gender: params["gender"])
     end
     
-    if params["min_age"].blank?
+    if params["min_age"] && params["min_age"] != ""
       all = all.where("date_of_birth < ?", get_date_paramater(params["min_age"]))
     end
     
-    if params["max_age"].blank?
+    if params["max_age"] && params["max_age"] != ""
       all = all.where("date_of_birth > ?", get_date_paramater(params["max_age"]))
     end
     
