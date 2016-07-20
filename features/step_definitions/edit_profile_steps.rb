@@ -18,6 +18,10 @@ When(/^They click "([^"]*)"$/) do |button|
   click_button button
 end
 
+When(/^They upload the image$/) do
+  attach_file('profile_avatar', '/Users/supiash/Desktop/pokemon.jpg')
+end
+
 Then(/^They see the message "([^"]*)"$/) do |arg1|
   page.should have_selector ".alert", text:"Your profile has been successfuly updated!"
 

@@ -7,6 +7,10 @@
       <%= f.label "Do you drink?" %>
       <%= f.check_box 'drinker' %>
     </fieldset>
+    <fieldset>
+      <%= f.label "Upload your Avatar" %>
+      <%= f.file_field 'avatar'%>
+    </fieldset>
     <%= f.submit "Save" %>
   <% end %>
 
