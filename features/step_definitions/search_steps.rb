@@ -30,6 +30,10 @@ When(/^they filter by age range$/) do
   click_on "Filter Results"
 end
 
+When(/^they filter by distance from a given location$/) do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
 Then(/^they should see a list of relevant results$/) do
   expect(page).to have_css("h3", text: "Dafman")
   expect(page).to have_css("h3", text: "Suppy")
@@ -55,4 +59,8 @@ Then(/^they should only see results relevant to age range filter$/) do
   expect(page).not_to have_css("h3", text: "Sansa")
   expect(page).not_to have_css("h3", text: "Fred")
   expect(page).not_to have_css("h3", text: "Sally")
+end
+
+Then(/^they should only see results relevant to the location filter$/) do
+  pending # Write code here that turns the phrase above into concrete actions
 end
