@@ -51,6 +51,11 @@ class ProfilesController < ApplicationController
       all = all.merge(in_range_profiles)
     end
     
+    unless params["proximity"].blank? && params["user_location"].blank?
+      in_range_profiles = Profile.near(params["user_location"], params["proximity"], units: :km)
+      all = all.merge(in_range_profiles)
+    end
+    
     all
   end
   
