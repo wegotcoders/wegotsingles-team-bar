@@ -1,6 +1,6 @@
 <h3>Search by Gender:</h3>
+
 <%= form_tag('/profiles/search_results', method: :get, class: "search-form") %>
- 
   <fieldset>
     <%= label_tag("search[gender]", "Gender", for: "search[gender]") %>
     <%= select_tag("search[gender]", gender_options, class: "form-control") %>
