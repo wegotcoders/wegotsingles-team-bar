@@ -8,13 +8,26 @@
 
       <%= label_tag("search[ethnicity]", "Ethnicity", for: "search[ethnicity]") %>
       <%= select_tag("search[ethnicity]", ethnicity_options, class: "form-control") %>
+    
+      <fieldset>
+        <%= label_tag("search[min_age]", "Min. Age", for: "search[min_age]") %>
+        <%= number_field_tag("search[min_age]", params[:search][:min_age], class: "form-control") %>
 
-      <%= label_tag("search[min_age]", "Min. Age", for: "search[min_age]") %>
-      <%= number_field_tag("search[min_age]", params[:search][:min_age], class: "form-control") %>
+        <%= label_tag("search[max_age]", "Max. Age", for: "search[max_age]") %>
+        <%= number_field_tag("search[max_age]", params[:search][:max_age], class: "form-control") %>
+      </fieldset>
+      
+      <fieldset>
+        <%= label_tag("search[town_city]", "Town/City", for: "search[town_city]") %>
+        <%= text_field_tag("search[town_city]", params[:search][:town_city], class: "form-control") %>
+        
+        <%= label_tag("search[country]", "Country", for: "search[country]") %>
+        <%= text_field_tag("search[country]", params[:search][:country], class: "form-control") %>
 
-      <%= label_tag("search[max_age]", "Max. Age", for: "search[max_age]") %>
-      <%= number_field_tag("search[max_age]", params[:search][:max_age], class: "form-control") %>
-
+        <%= label_tag("search[distance]", "Distance", for: "search[distance]") %>
+        <%= select_tag("search[distance]", distance_options, class: "form-control") %>
+      </fieldset>
+      
 			<%= submit_tag("Filter Results", class: "btn btn-info mt-10 form-control") %>
 	</div>
 

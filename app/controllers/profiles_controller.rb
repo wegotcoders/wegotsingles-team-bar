@@ -5,7 +5,6 @@ class ProfilesController < ApplicationController
   end
   
   def search
-    
   end
 
   def edit
@@ -44,6 +43,10 @@ class ProfilesController < ApplicationController
     
     unless params["max_age"].blank?
       all = all.where("date_of_birth > ?", get_date_paramater(params["max_age"]))
+    end
+    
+    unless params["town_city"].blank? && params["country"].blank?
+      location = "#{params["town_city"]}, #{params["country"]}"
     end
     
     all

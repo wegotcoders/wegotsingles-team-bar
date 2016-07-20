@@ -5,7 +5,7 @@ Feature: Searching
       And they are on the search page
       And they fill in the search form with a gender preference
       And they click on 'Search'
-
+  
   Scenario: Searching by gender
     Then they should see a list of relevant results
 
