@@ -79,6 +79,7 @@ When(/^they filter by age range$/) do
 end
 
 When(/^they filter by distance from a given location$/) do
+  save_and_open_page
   fill_in "search[town_city]", with: "Hoddesdon"
   fill_in "search[country]", with: "UK"
   select(5, from: 'search[distance]')

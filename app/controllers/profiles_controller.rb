@@ -45,8 +45,10 @@ class ProfilesController < ApplicationController
       all = all.where("date_of_birth > ?", get_date_paramater(params["max_age"]))
     end
     
-    unless params["town_city"].blank? && params["country"].blank?
+    unless params["town_city"].blank? && params["country"].blank? && params["distance"].blank?
       location = "#{params["town_city"]}, #{params["country"]}"
+      in_range_profiles = Profile.near(location, params["distance"], units: :km)
+      all = all.merge(in_range_profiles)
     end
     
     all
