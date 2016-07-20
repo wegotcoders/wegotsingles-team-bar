@@ -17,7 +17,6 @@ Feature: Searching
     When they filter by age range
     Then they should only see results relevant to age range filter
     
-  @wip
   Scenario: Filtering by distance from a given location
     When they filter by distance from a given location
     Then they should only see results relevant to the location filter
