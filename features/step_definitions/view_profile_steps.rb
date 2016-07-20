@@ -4,7 +4,8 @@ Given(/^A customer has previously registered$/) do
 end
 
 Given(/^They have created a profile$/) do
-  @profile = Profile.create!(:star_sign => "Leo", :customer_id => @customer.id[:id])
+  @profile = Profile.create!(:star_sign => "Leo", :customer_id => @customer.id[:id], :biography => "This is a biography",
+                            :desires => "These are my desires")
 end
 
 Given(/^A customer is signed in$/) do
