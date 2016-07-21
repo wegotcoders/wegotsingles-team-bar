@@ -29,9 +29,8 @@ Feature: Searching
       And they click on 'Search'
     When they filter by distance from a given location
     Then they should only see results relevant to the location filter
-    
   @wip
-  Scenario: 
+  Scenario: Filtering by proximity to current user
     Given they are logged in
       And they are on the search page
     When they fill in the search form with a proximity preference

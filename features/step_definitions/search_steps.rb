@@ -121,7 +121,6 @@ Then(/^they should only see results relevant to age range filter$/) do
 end
 
 Then(/^they should only see results relevant to the location filter$/) do
-  save_and_open_page
   expect(page).to have_css("h3", text: "Dafman")
   expect(page).not_to have_css("h3", text: "Suppy")
   expect(page).not_to have_css("h3", text: "Tammy")
