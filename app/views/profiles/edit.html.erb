@@ -4,10 +4,6 @@
 
   <%= form_for @profile, html: { multipart: true } do |f| %>
     <fieldset>
-      <%= f.label "Do you drink?" %>
-      <%= f.check_box 'drinker' %>
-    </fieldset>
-    <fieldset>
       <% if @profile.avatars? %>
         <% @profile.avatars.each do |image| %>
           <%= image_tag(image.url) %>
@@ -15,6 +11,26 @@
       <% end %>
       <%= f.label "Upload your Avatar" %>
       <%= f.file_field :avatars, multiple: true %>
+    </fieldset>
+    <fieldset>
+      <%= f.label :biography %>
+      <%= f.text_area :biography %>
+    </fieldset>
+    <fieldset>
+      <%= f.label "Do you drink?" %>
+      <%= f.check_box 'drinker' %>
+    </fieldset>
+    <fieldset>
+      <%= f.label :desires %>
+      <%= f.text_area :desires %>
+    </fieldset>
+    <fieldset>
+      <%= f.label "Do you smoke?" %>
+      <%= f.check_box 'smoker' %>
+    </fieldset>
+    <fieldset>
+      <%= f.label "Select your Star Sign" %>
+      <%= f.select :star_sign, Profile::STAR_SIGNS %>
     </fieldset>
     <%= f.submit "Save" %>
   <% end %>

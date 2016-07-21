@@ -9,7 +9,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'carrierwave' , github: 'carrierwaveuploader/carrierwave'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'spring', group: :development
-#gem 'inuit-rails', git: 'https://github.com/wegotcoders/inuit-rails'
+gem 'geocoder'
 
 group :development, :test do
   gem 'rspec-rails'

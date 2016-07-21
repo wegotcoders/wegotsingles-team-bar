@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20160720162048) do
+=======
+ActiveRecord::Schema.define(version: 20160720134607) do
+>>>>>>> dev
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,13 +23,22 @@ ActiveRecord::Schema.define(version: 20160720162048) do
   create_table "profiles", force: :cascade do |t|
     t.string   "star_sign"
     t.integer  "customer_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.string   "username"
     t.integer  "gender"
     t.integer  "ethnicity"
     t.boolean  "drinker"
     t.string   "avatars",                  array: true
+    t.date     "date_of_birth"
+    t.boolean  "drinker"
+    t.string   "town_city"
+    t.string   "country"
+    t.text     "biography",     default: ""
+    t.text     "desires",       default: ""
+    t.boolean  "smoker"
+    t.decimal  "latitude"
+    t.decimal  "longitude"
   end
 
 end
