@@ -39,8 +39,7 @@ When(/^They click the "([^"]*)" link$/) do |link|
 end
 
 When(/^They select their religious beliefs$/) do
-  select("Pastafarian", from: "profile_religion")
-  save_and_open_page
+  select("Pastafarianism", from: "profile_religion")
 end
 
 When(/^They click "([^"]*)"$/) do |button|

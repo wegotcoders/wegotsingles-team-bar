@@ -56,13 +56,13 @@ module ApplicationHelper
   def religion_options
     options_for_select([
       ['Religion...', nil],
-      ['Christian', 0],
+      ['Christianity', 0],
       ['Islam', 1],
       ['Hinduism', 2],
       ['Buddhism',3],
       ['Judaism', 4],
-      ['Pastafarian', 5],
-      ['Agnosticsm', 6],
+      ['Pastafarianism', 5],
+      ['Agnosticism', 6],
       ['Atheism', 7],
       ['Sikhism', 8]
     ], get_pre_selected_option("religion"))
