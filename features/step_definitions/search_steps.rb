@@ -5,7 +5,8 @@ Given(/^there are some registered profiles$/) do
     ethnicity: 0, 
     date_of_birth: Date.new(1988, 03, 22), # 29
     town_city: "Hoddesdon",
-    country: "United Kingdom"
+    country: "United Kingdom",
+    industry: 12
   }) 
   
   Profile.create!({
@@ -14,7 +15,8 @@ Given(/^there are some registered profiles$/) do
     ethnicity: 4, 
     date_of_birth: Date.new(1984, 03, 22), # 32
     town_city: "Cheshunt",
-    country: "United Kingdom"
+    country: "United Kingdom",
+    industry: 0
   })  
   
   Profile.create!({
@@ -23,7 +25,8 @@ Given(/^there are some registered profiles$/) do
     ethnicity: 1, 
     date_of_birth: Date.new(1993, 03, 22), # 23
     town_city: "Hoddesdon",
-    country: "United Kingdom"
+    country: "United Kingdom",
+    industry: 12
   })  
   
   Profile.create!({
@@ -32,7 +35,8 @@ Given(/^there are some registered profiles$/) do
     ethnicity: 2, 
     date_of_birth: Date.new(1988, 03, 22), # 28
     town_city: "London",
-    country: "United Kingdom"
+    country: "United Kingdom",
+    industry: 8
   })  
   
   Profile.create!({
@@ -41,7 +45,8 @@ Given(/^there are some registered profiles$/) do
     ethnicity: 3, 
     date_of_birth: Date.new(1991, 03, 22), # 25
     town_city: "Hoddesdon",
-    country: "United Kingdom"
+    country: "United Kingdom",
+    industry: 12
   })
   
   Profile.create!({
@@ -50,7 +55,8 @@ Given(/^there are some registered profiles$/) do
     ethnicity: 0, 
     date_of_birth: Date.new(1963, 03, 22), # 53
     town_city: "Hoddesdon",
-    country: "United Kingdom"
+    country: "United Kingdom",
+    industry: 10
   })  
   
 end
@@ -61,6 +67,10 @@ end
 
 Given(/^they are logged in$/) do
   # %%%TODO
+end
+
+Given(/^they fill in the search form with an industry preference$/) do
+  select("Legal", from: "search[industry]")
 end
 
 When(/^they fill in the search form with a gender preference$/) do
@@ -84,7 +94,8 @@ end
 
 When(/^they filter by distance from a given location$/) do
   fill_in "search[town_city]", with: "Hoddesdon"
-  fill_in "search[country]", with: "UK"
+  fill_in "search[country]", with: "UK",
+  industry: 7
   select(5, from: 'search[distance]')
   click_on "Filter Results"
 end
@@ -136,4 +147,13 @@ Then(/^they should only see results relevant to the proximity filter$/) do
   expect(page).not_to have_css("h3", text: "Sansa")
   expect(page).to have_css("h3", text: "Fred")
   expect(page).to have_css("h3", text: "Sally")
+end
+
+Then(/^they should only see results relevant to industry filter$/) do
+  expect(page).to have_css("h3", text: "Dafman")
+  expect(page).not_to have_css("h3", text: "Suppy")
+  expect(page).to have_css("h3", text: "Tammy")
+  expect(page).not_to have_css("h3", text: "Sansa")
+  expect(page).to have_css("h3", text: "Fred")
+  expect(page).not_to have_css("h3", text: "Sally")
 end

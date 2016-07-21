@@ -37,6 +37,10 @@ class ProfilesController < ApplicationController
       all = all.where(gender: params[:gender])
     end
     
+    unless params[:industry].blank?
+      all = all.where(industry: params[:industry])
+    end
+    
     unless params[:min_age].blank?
       all = all.where("date_of_birth < ?", get_date_paramater(params[:min_age]))
     end

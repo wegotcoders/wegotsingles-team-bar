@@ -8,6 +8,13 @@ Feature: Searching
       And they fill in the search form with a gender preference
       And they click on 'Search'
     Then they should see a list of relevant results
+  
+  @wip
+  Scenario: Searching by industry
+    Given they are on the search page
+      And they fill in the search form with an industry preference
+      And they click on 'Search'
+    Then they should only see results relevant to industry filter
 
   Scenario: Filtering by Ethnicity
     Given they are on the search page
@@ -29,7 +36,7 @@ Feature: Searching
       And they click on 'Search'
     When they filter by distance from a given location
     Then they should only see results relevant to the location filter
-  @wip
+  
   Scenario: Filtering by proximity to current user
     Given they are logged in
       And they are on the search page
