@@ -1,0 +1,16 @@
+Given(/^they are on the registration page$/) do
+  visit new_customer_registration_path
+end
+
+When(/^they fill in the form with valid details$/) do
+  save_and_open_page
+  fill_in "Username", with: "Finn"
+  fill_in "Email", with: "finn@finn.com"
+  fill_in "Password", with: "password"
+  fill_in "Confirm Password", with: "password"
+  click_button "Sign up"
+end
+
+Then(/^a Customer should be created$/) do
+  expect(Customer.first.username).to eq('Finn')
+end
