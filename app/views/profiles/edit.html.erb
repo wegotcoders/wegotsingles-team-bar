@@ -5,8 +5,10 @@
   <%= form_for @profile, html: { multipart: true } do |f| %>
     <fieldset>
       <% if @profile.avatars? %>
-        <% @profile.avatars.each do |image| %>
+        <% @profile.avatars.each_with_index do |image,index| %>
           <%= image_tag(image.url) %>
+          <%= f.label "Remove your Avatar" %>
+          <span><%= link_to "", [:destroy, @profile] %></span>
         <% end %>
       <% end %>
       <%= f.label "Upload your Avatar" %>
