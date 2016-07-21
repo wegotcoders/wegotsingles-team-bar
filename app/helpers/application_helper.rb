@@ -34,4 +34,8 @@ module ApplicationHelper
       [50, 50]
     ], get_pre_selected_option("distance"))
   end
+  
+  def current_customer
+    @current_customer ||= Customer.new(Profile.where(username: "Dafman").first)
+  end
 end

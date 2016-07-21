@@ -9,7 +9,7 @@
   <fieldset>
     <%= label_tag("search[proximity]", "Proximity", for: "search[proximity]") %>
     <%= select_tag("search[proximity]", distance_options, class: "form-control") %>
-    <%= hidden_field_tag("search[user_location]", @current_customer.profile.geocoder_input, class: "form-control") %>
+    <%= hidden_field_tag("search[user_location]", current_customer.profile.geocoder_input, class: "form-control") %>
   </fieldset>
   
   <%= submit_tag("Search", class: "btn btn-info mt-10") %>
