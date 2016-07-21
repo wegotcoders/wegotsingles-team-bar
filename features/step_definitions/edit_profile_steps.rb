@@ -22,6 +22,10 @@ When(/^They enter their smoking status$/) do
   check "profile_smoker"
 end
 
+When(/^They enter their weight in kilograms$/) do
+  fill_in "profile_weight", with: 80
+end
+
 When(/^They enter the changes to their user biography$/) do
   fill_in "profile_biography", with: "This is my new Biography"
 end
@@ -46,6 +50,15 @@ When(/^They click "([^"]*)"$/) do |button|
   click_button button
 end
 
+When(/^They upload the image$/) do
+  attach_file('profile[avatars][]', 'public/test_image/pokemon.jpg')
+end
+
 Then(/^They see the message "([^"]*)"$/) do |message|
   page.should have_selector ".alert", text: message
+end
+
+Then(/^They see their weight appear on the show profile page$/) do
+  visit "/profiles/#{@profile.id}"
+  expect(page).to have_css("p", text: "80.0kg")
 end

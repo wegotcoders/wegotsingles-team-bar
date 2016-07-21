@@ -1,10 +1,13 @@
 class Profile < ActiveRecord::Base
   enum gender: [:male, :female, :transgender]
+
+  mount_uploaders :avatars, AvatarUploader
+
   enum ethnicity: [:caucasian, :black, :hispanic, :indian, :middle_eastern]
 
   geocoded_by :geocoder_input
   after_validation :geocode
-  
+
   def age
     dob = self.date_of_birth
     now = Time.now.utc.to_date
