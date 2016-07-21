@@ -8,25 +8,35 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class="wrapper">
+    <header class="container-fluid primary">
+      <div class="row">
+        <div class="col-sm-3">
+          <%= image_tag("logo.png", alt: "We Got Singles Logo") %>
+        </div>
 
-	<header class="row primary">
-		<div class="col-sm-3">
-      <%= image_tag("logo.png", alt: "We Got Singles Logo") %>
-		</div>
-	</header>
+        <div class="col-sm-2 col-sm-offset-7">
+          <ul>
+            <li><a href="#" class="btn btn-info">Sign In</a></li>
+            <li><a href="#" class="btn btn-warning">Register</a></li>
+          </ul>
+        </div>
+      </div>
+    </header>
 
-	<main class="container">
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
-	</main>
+    <%= render "shared/nav.html.erb" %>
 
-  <footer class="primary">
-    &#169; 2016 We Got Coders
-  </footer>
-   
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <main class="container">
+      <%= yield %>
+    </main>
+
+    <footer class="primary">
+      &#169; 2016 We Got Coders
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  </div>
 
 </body>
 </html>

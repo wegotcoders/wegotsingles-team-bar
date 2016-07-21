@@ -6,6 +6,7 @@ gem 'sass-rails'
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
+gem 'carrierwave' , github: 'carrierwaveuploader/carrierwave'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'spring', group: :development
 gem 'geocoder'
