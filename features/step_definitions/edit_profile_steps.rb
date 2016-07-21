@@ -52,5 +52,5 @@ end
 
 Then(/^They see their weight appear on the show profile page$/) do
   visit "/profiles/#{@profile.id}"
-  expect(page).to have_css("p", text: "80kg")
+  expect(page).to have_css("p", text: "80.0kg")
 end
