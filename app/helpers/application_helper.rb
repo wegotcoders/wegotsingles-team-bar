@@ -42,9 +42,9 @@ module ApplicationHelper
       ['College', 1],
       ['Undergraduate', 2],
       ['Masters', 3],
-      ['PHD/ Post Doctorial', 4],
+      ['PHD / Post Doctorial', 4],
       ['Other', 5]
-    ], get_pre_selected_option("education_level"))
+    ], get_pre_selected_option("education"))
   end
 
 

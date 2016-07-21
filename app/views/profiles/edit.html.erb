@@ -23,6 +23,10 @@
       <%= f.label "Select your Star Sign" %>
       <%= f.select :star_sign, Profile::STAR_SIGNS %>
     </fieldset>
+    <fieldset>
+      <%= f.label :education_level %>
+      <%= f.select :education, education_level_options, {}, class: "form-control" %>
+    </fieldset>
     <%= f.submit "Save" %>
   <% end %>
 

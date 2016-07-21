@@ -42,6 +42,10 @@ When(/^They click "([^"]*)"$/) do |button|
   click_button button
 end
 
+When(/^They select their level of education$/) do
+  select("College", from: "profile_education")
+end
+
 Then(/^They see the message "([^"]*)"$/) do |message|
   page.should have_selector ".alert", text: message
 end
