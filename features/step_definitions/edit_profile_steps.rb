@@ -46,6 +46,10 @@ When(/^They click "([^"]*)"$/) do |button|
   click_button button
 end
 
+When(/^They upload the image$/) do
+  attach_file('profile[avatars][]', 'public/test_image/pokemon.jpg')
+end
+
 Then(/^They see the message "([^"]*)"$/) do |message|
   page.should have_selector ".alert", text: message
 end

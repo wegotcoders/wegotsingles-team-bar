@@ -3,7 +3,7 @@ class ProfilesController < ApplicationController
 
   def show
   end
-  
+
   def search
   end
 
@@ -16,18 +16,19 @@ class ProfilesController < ApplicationController
     else
       flash[:error] = "Oops something went wrong :("
     end
-    
+
     redirect_to @profile
   end
 
   def search_results
     @profile_results = search_profiles(params[:search])
   end
-  
+
   private
-  
+
   def search_profiles(params)
     all = Profile.unscoped
+<<<<<<< HEAD
     
     unless params[:ethnicity].blank?
       all = all.where(ethnicity: params[:ethnicity])
@@ -57,14 +58,14 @@ class ProfilesController < ApplicationController
     
     all
   end
-  
+
   def get_date_paramater(min_max_age)
     current_day = Time.now.strftime("%d").to_i
     current_month = Time.now.strftime("%D").to_i
     min_max_age_year = Time.now.strftime("%Y").to_i - min_max_age.to_i
     Time.new(min_max_age_year, current_month, current_day)
   end
-  
+
   private
 
   def find_profile
@@ -74,7 +75,12 @@ class ProfilesController < ApplicationController
   end
 
   def get_profile_update_params
-    params.require(:profile).permit(:drinker, :biography, :weight)  
+    add_images(params[:profile][:avatars]) if params[:profile][:avatars]
+    params.require(:profile).permit(:drinker, :biography, :desires, :smoker, :star_sign, :weight, :avatars)
+  end
+
+  def add_images(new_image)
+    @profile.avatars+=new_image
   end
 
 end
