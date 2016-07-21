@@ -23,6 +23,10 @@
       <%= f.label "Select your Star Sign" %>
       <%= f.select :star_sign, star_sign_options, {}, class: "form-control" %>
     </fieldset>
+    <fieldset>
+      <%= f.label "Select your Religious Beliefs" %>
+      <%= f.select :religion, religion_options, {}, class: "form-control" %>
+    </fieldset>
     <%= f.submit "Save" %>
   <% end %>
 

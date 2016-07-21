@@ -68,27 +68,5 @@ module ApplicationHelper
     ], get_pre_selected_option("religion"))
   end
 
-  def education_level_options
-    options_for_select([
-      ['Education Level...', nil],
-      ['Secondary', 0],
-      ['College', 1],
-      ['Undergraduate', 2],
-      ['Masters', 3],
-      ['PHD/ Post Doctorial', 4],
-      ['Other', 5]
-    ], get_pre_selected_option("education_level"))
-  end
 
-  def education_level_options
-    options_for_select([
-      ['Education Level...', nil],
-      ['Secondary', 0],
-      ['College', 1],
-      ['Undergraduate', 2],
-      ['Masters', 3],
-      ['PHD/ Post Doctorial', 4],
-      ['Other', 5]
-    ], get_pre_selected_option("education_level"))
-  end
 end
