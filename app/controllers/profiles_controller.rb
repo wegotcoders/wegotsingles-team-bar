@@ -4,15 +4,23 @@ class ProfilesController < ApplicationController
   def show
   end
   
+  def delete_image
+    images=@profile.avatars
+    if params[:index_tag].to_i == 0
+      @profile.avatars=[]
+    else
+      images.delete_at(params[:index_tag].to_i)
+      @profile.avatars=images
+    end
+    @profile.save!
+    redirect_to @profile
+  end
+
 
   def search
   end
 
   def edit
-
-  end
-
-  def destroy
 
   end
 
@@ -69,7 +77,8 @@ class ProfilesController < ApplicationController
   
   private
 
-  def find_profile
+  def find_profile    
+    
     if params[:id]
       @profile = Profile.find(params[:id])
     end
@@ -81,7 +90,10 @@ class ProfilesController < ApplicationController
   end
 
   def add_images(new_image)
-    @profile.avatars+=new_image
+    image=@profile.avatars
+    image+=new_image
+    @profile.avatars=image
+    @profile.save!
   end
 
 end

@@ -25,7 +25,6 @@ ActiveRecord::Schema.define(version: 20160720162048) do
     t.integer  "gender"
     t.integer  "ethnicity"
     t.boolean  "drinker"
-    t.string   "avatars",                                 array: true
     t.text     "biography",     default: ""
     t.date     "date_of_birth"
     t.text     "desires",       default: ""
@@ -34,6 +33,7 @@ ActiveRecord::Schema.define(version: 20160720162048) do
     t.string   "country"
     t.decimal  "latitude"
     t.decimal  "longitude"
+    t.string   "avatars",       default: [],              array: true
   end
 
 end

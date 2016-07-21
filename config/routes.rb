@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   root 'pages#home'
-
-  resources :profiles, :only => [:show, :edit, :update, :destroy] do
+  
+  post 'profiles/:id/delete_image', to: 'profiles#delete_image'
+  
+  resources :profiles, :only => [:show, :edit, :update] do
     collection do
       get :search
       get :search_results
