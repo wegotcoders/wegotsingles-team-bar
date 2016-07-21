@@ -28,7 +28,6 @@ class ProfilesController < ApplicationController
 
   def search_profiles(params)
     all = Profile.unscoped
-<<<<<<< HEAD
     
     unless params[:ethnicity].blank?
       all = all.where(ethnicity: params[:ethnicity])
