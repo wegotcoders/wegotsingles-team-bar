@@ -71,7 +71,7 @@ class ProfilesController < ApplicationController
 
   def get_profile_update_params
     add_images(params[:profile][:avatars]) if params[:profile][:avatars]
-    params.require(:profile).permit(:drinker, :biography)
+    params.require(:profile).permit(:drinker, :biography, :desires, :smoker, :star_sign, :weight, :avatars)
   end
 
   def add_images(new_image)
