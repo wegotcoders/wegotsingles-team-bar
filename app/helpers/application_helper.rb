@@ -34,4 +34,61 @@ module ApplicationHelper
       [50, 50]
     ], get_pre_selected_option("distance"))
   end
+
+  def star_sign_options
+    options_for_select([
+      ['Select your star sign...', nil],
+      ['Aries','0'],
+      ['Taurus','1'],
+      ['Gemini','2'],
+      ['Cancer','3'],
+      ['Leo','4'],
+      ['Virgo','5'],
+      ['Pisces','6'],
+      ['Libra','7'],
+      ['Scorpio','8'],
+      ['Sagittarius','9'],
+      ['Capricorn','10'],
+      ['Aquarius','11']
+    ], get_pre_selected_option("star sign"))
+  end
+    
+  def religion_options
+    options_for_select([
+      ['Religion...', nil],
+      ['Christian', 0],
+      ['Islam', 1],
+      ['Hinduism', 2],
+      ['Buddhism',3],
+      ['Judaism', 4],
+      ['Pastafarian', 5],
+      ['Agnosticsm', 6],
+      ['Atheism', 7],
+      ['Sikhism', 8]
+    ], get_pre_selected_option("religion"))
+  end
+
+  def education_level_options
+    options_for_select([
+      ['Education Level...', nil],
+      ['Secondary', 0],
+      ['College', 1],
+      ['Undergraduate', 2],
+      ['Masters', 3],
+      ['PHD/ Post Doctorial', 4],
+      ['Other', 5]
+    ], get_pre_selected_option("education_level"))
+  end
+
+  def education_level_options
+    options_for_select([
+      ['Education Level...', nil],
+      ['Secondary', 0],
+      ['College', 1],
+      ['Undergraduate', 2],
+      ['Masters', 3],
+      ['PHD/ Post Doctorial', 4],
+      ['Other', 5]
+    ], get_pre_selected_option("education_level"))
+  end
 end
