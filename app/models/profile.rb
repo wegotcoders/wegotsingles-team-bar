@@ -1,7 +1,6 @@
 class Profile < ActiveRecord::Base
   enum gender: [:male, :female, :transgender]
   mount_uploaders :avatars, AvatarUploader
-  mount_uploader :avatar, AvatarUploader
   STAR_SIGNS = [['Aries','aries'],['Taurus','taurus'],['Gemini','gemini'],
     ['Cancer','cancer'],['Leo','leo'],['Virgo','virgo'],['Pisces','pisces'],
     ['Libra','libra'],['Scorpio','scorpio'],['Sagittarius','sagittarius'],

@@ -16,12 +16,10 @@ class ProfilesController < ApplicationController
     redirect_to @profile
   end
 
-
   def search
   end
 
   def edit
-
   end
 
   def update
@@ -77,8 +75,7 @@ class ProfilesController < ApplicationController
   
   private
 
-  def find_profile    
-    
+  def find_profile     
     if params[:id]
       @profile = Profile.find(params[:id])
     end
