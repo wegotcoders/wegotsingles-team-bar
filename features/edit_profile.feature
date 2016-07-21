@@ -39,5 +39,13 @@ Feature: Edit profile
       And They click "Save"
     Then They see the message "Your profile has been successfuly updated!"
 
+  @wip
+  Scenario: A custmer enteres their weight in metric into their profile
+    Given They are on the edit profile page
+    When They enter their weight in kilograms
+      And They click "Save"
+    Then They see the message "Your profile has been successfuly updated!"
+      And They see their weight appear on the show profile page
+
 
 

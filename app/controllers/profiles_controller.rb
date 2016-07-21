@@ -70,7 +70,7 @@ class ProfilesController < ApplicationController
   end
 
   def get_profile_update_params
-    params.require(:profile).permit(:drinker, :biography)  
+    params.require(:profile).permit(:drinker, :biography, :weight)  
   end
 
 end

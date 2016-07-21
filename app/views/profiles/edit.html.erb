@@ -23,6 +23,10 @@
       <%= f.label "Select your Star Sign" %>
       <%= f.select :star_sign, Profile::STAR_SIGNS %>
     </fieldset>
+    <fieldset>
+      <%= f.label "Weight k/g" %>
+      <%= f.number_field :weight %>
+    </fieldset>
     <%= f.submit "Save" %>
   <% end %>
 
