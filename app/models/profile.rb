@@ -3,6 +3,8 @@ class Profile < ActiveRecord::Base
   enum ethnicity: [:caucasian, :black, :hispanic, :indian, :middle_eastern]
   enum industry: [:accountancy, :admin, :banking, :building, :charity, :education, :engineering, :hospitality, :tourism, :human_resource, :industrial, :it, :legal, :marketing, :sales, :telecommunications]
   
+  mount_uploaders :avatars, AvatarUploader
+
   STAR_SIGNS = [['Aries','aries'],['Taurus','taurus'],['Gemini','gemini'],
     ['Cancer','cancer'],['Leo','leo'],['Virgo','virgo'],['Pisces','pisces'],
     ['Libra','libra'],['Scorpio','scorpio'],['Sagittarius','sagittarius'],
