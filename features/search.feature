@@ -32,7 +32,7 @@ Feature: Searching
       And they click on 'Search'
     When they filter by distance from a given location
     Then they should only see results relevant to the location filter
-  @wip
+    
   Scenario: Filtering by proximity to current user
     Given they are logged in
       And they are on the search page
