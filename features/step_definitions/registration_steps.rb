@@ -11,5 +11,5 @@ When(/^they fill in the form with valid details$/) do
 end
 
 Then(/^a Customer should be created$/) do
-  expect(Customer.count).to eq(1)
+  expect(Customer.first.username).to eq('Finn')
 end

@@ -1,0 +1,11 @@
+<div class="row">
+  <h1>Inbox</h1>
+  <% @received_messages.each do |message| %>
+    <h3>
+      <%= message.sender.username %>
+    </h3>
+    <p>
+      <%= message.body %>
+    </p>
+  <% end %>
+</div>

@@ -2,8 +2,12 @@
   <% if flash[:notice] %>
     <div class="notice alert"><%= flash[:notice] %></div>
   <% end %>
+  
   <span><%= link_to "Edit Profile", [:edit, @profile] %></span>
   <h1>Profile</h1>
+  <div class="inbox">
+    <%= link_to "Inbox", messages_path %>
+  </div>
   <div class="col-xs-12">
     <p id="star-sign">Star Sign</p>
     <%= @profile.star_sign %>

@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-  devise_for :customers
+  devise_for :customers, controllers: { registrations: 'registrations' }
+
   root 'pages#home'
+
+  resources :messages, :only => :index
 
   resources :profiles, :only => [:show, :edit, :update] do
     collection do

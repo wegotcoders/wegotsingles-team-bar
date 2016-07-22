@@ -2,7 +2,7 @@ module ApplicationHelper
   def get_pre_selected_option(property)
     (params[:search] && params[:search]["#{property}"] && params[:search]["#{property}"] != "") ? params[:search]["#{property}"].to_i : nil
   end
-  
+
   def gender_options
     options_for_select([
       ['Choose Gender...', nil],
@@ -11,7 +11,7 @@ module ApplicationHelper
       ['Transgender', 2]
     ], get_pre_selected_option("gender"))
   end
-  
+
   def ethnicity_options
     options_for_select([
       ['Choose Ethnicity...', nil],
@@ -22,7 +22,7 @@ module ApplicationHelper
       ['Middle Eastern', 4]
     ], get_pre_selected_option("ethnicity"))
   end
-  
+
   def distance_options
     options_for_select([
       ['Distance (km)...', nil],
