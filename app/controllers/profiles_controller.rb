@@ -1,6 +1,5 @@
 class ProfilesController < ApplicationController
   before_filter :find_profile
-  before_filter :set_background
 
   def delete_image
     images=@profile.avatars
@@ -94,10 +93,6 @@ class ProfilesController < ApplicationController
     image+=new_image
     @profile.avatars=image
     @profile.save!
-  end
-
-  def set_background
-    @background_image = "profile-background"
   end
 
 end

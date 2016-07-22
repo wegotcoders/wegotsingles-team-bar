@@ -52,7 +52,6 @@ ActiveRecord::Schema.define(version: 20160722133652) do
     t.string   "username"
     t.integer  "gender"
     t.integer  "ethnicity"
-
     t.date     "date_of_birth"
     t.boolean  "drinker"
     t.string   "town_city"
