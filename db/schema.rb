@@ -43,18 +43,19 @@ ActiveRecord::Schema.define(version: 20160721151257) do
     t.string   "username"
     t.integer  "gender"
     t.integer  "ethnicity"
-    t.boolean  "drinker"
-    t.text     "biography",     default: ""
+
     t.date     "date_of_birth"
-    t.text     "desires",       default: ""
-    t.boolean  "smoker"
+    t.boolean  "drinker"
     t.string   "town_city"
     t.string   "country"
+    t.text     "biography",     default: ""
+    t.text     "desires",       default: ""
+    t.boolean  "smoker"
     t.decimal  "latitude"
     t.decimal  "longitude"
-    t.string   "avatars",       default: [],              array: true
-    t.decimal  "weight"
     t.string   "industry"
+    t.decimal  "weight"
+    t.string   "avatars",                                 array: true
     t.string   "religion"
   end
 

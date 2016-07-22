@@ -2,6 +2,8 @@ class Profile < ActiveRecord::Base
   belongs_to :customer, foreign_key: :customer_id
 
   enum gender: [:male, :female, :transgender]
+  enum ethnicity: [:caucasian, :black, :hispanic, :indian, :middle_eastern]
+  enum industry: [:accountancy, :admin, :banking, :building, :charity, :education, :engineering, :hospitality, :tourism, :human_resource, :industrial, :it, :legal, :marketing, :sales, :telecommunications]
 
   mount_uploaders :avatars, AvatarUploader
 
@@ -11,8 +13,6 @@ class Profile < ActiveRecord::Base
     ['Capricorn','capricorn'],['Aquarius','aquarius']]
 
   EXCLUDED_ATTRIBUTES =["id", "customer_id", "created_at", "updated_at", "latitude", "longitude"]
-
-  enum ethnicity: [:caucasian, :black, :hispanic, :indian, :middle_eastern]
 
   geocoded_by :geocoder_input
   after_validation :geocode
