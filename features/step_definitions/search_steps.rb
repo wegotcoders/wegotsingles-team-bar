@@ -59,10 +59,6 @@ Given(/^they are on the search page$/) do
   visit "/profiles/search"
 end
 
-Given(/^they are logged in$/) do
-  # %%%TODO
-end
-
 When(/^they fill in the search form with a gender preference$/) do
   select("Male", from: "search[gender]")
 end

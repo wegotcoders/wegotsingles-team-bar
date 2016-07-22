@@ -42,6 +42,10 @@ When(/^They click the "([^"]*)" link$/) do |link|
   click_link link
 end
 
+When(/^They select their religious beliefs$/) do
+  select("Pastafarianism", from: "profile_religion")
+end
+
 When(/^They click "([^"]*)"$/) do |button|
   click_button button
 end
