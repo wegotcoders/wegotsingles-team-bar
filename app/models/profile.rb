@@ -10,6 +10,7 @@ class Profile < ActiveRecord::Base
     ['Libra','libra'],['Scorpio','scorpio'],['Sagittarius','sagittarius'],
     ['Capricorn','capricorn'],['Aquarius','aquarius']]
 
+  EXCLUDED_ATTRIBUTES =["id", "customer_id", "created_at", "updated_at", "latitude", "longitude"]
 
   enum ethnicity: [:caucasian, :black, :hispanic, :indian, :middle_eastern]
 
@@ -24,5 +25,14 @@ class Profile < ActiveRecord::Base
 
   def geocoder_input
     [self.town_city, self.country].join(', ')
+  end
+
+  def completedness
+    total_attributes=self.attribute_names - EXCLUDED_ATTRIBUTES
+    filled_attributes = total_attributes.inject(0) do |sum, attribute| 
+      sum += 1 if self.send("#{attribute}").present? 
+      sum
+    end
+    ((filled_attributes * 100) / total_attributes.length)
   end
 end
