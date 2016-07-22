@@ -3,11 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   
-  before_filter :current_customer
-  
-  Customer ||= Struct.new(:profile)
-  
-  def current_customer
-    @current_customer ||= Customer.new(Profile.where(username: "Dafman").first)
+  def after_sign_in_path_for(resource)
+    request.env['omniauth.origin'] || stored_location_for(resource) || "/profiles/#{resource.profile.id}"
   end
 end

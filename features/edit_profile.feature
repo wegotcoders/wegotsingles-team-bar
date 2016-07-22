@@ -44,3 +44,9 @@ Feature: Edit profile
     When They select their star sign
       And They click "Save"
     Then They see the message "Your profile has been successfuly updated!"
+
+  Scenario: A customer indicates their religious beliefs on their profile
+    Given They are on the edit profile page
+    When They select their religious beliefs
+      And They click "Save"
+    Then They see the message "Your profile has been successfuly updated!"
