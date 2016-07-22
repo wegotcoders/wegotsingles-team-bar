@@ -54,6 +54,10 @@ When(/^They upload the image$/) do
   attach_file('profile[avatars][]', 'public/test_image/pokemon.jpg')
 end
 
+When(/^They select a language they can speak$/) do
+  save_and_open_page
+end
+
 Then(/^They see the message "([^"]*)"$/) do |message|
   page.should have_selector ".alert", text: message
 end

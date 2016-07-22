@@ -50,3 +50,10 @@ Feature: Edit profile
     When They select their religious beliefs
       And They click "Save"
     Then They see the message "Your profile has been successfuly updated!"
+
+@wip
+  Scenario: A customer adds a language that they speak to their list of languages
+    Given They are on the edit profile page
+    When They select a language they can speak
+      And They click "Save"
+    Then They see the message "Your profile has been successfuly updated!"

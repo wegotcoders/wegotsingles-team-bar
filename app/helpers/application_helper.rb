@@ -77,7 +77,7 @@ module ApplicationHelper
       ['Urdu', 2],
       ['Bengali', 3],
       ['Gujarati', 4],
-      ['Arabic', 5]
+      ['Arabic', 5],
       ['French', 6],
       ['Portuguese',7],
       ['Spanish',8],

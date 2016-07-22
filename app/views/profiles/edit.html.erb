@@ -37,6 +37,10 @@
       <%= f.select :religion, religion_options, {}, class: "form-control" %>
     </fieldset>
     <fieldset>
+      <%= f.label "Select a Language you can speak" %>
+      <%= f.select :languages, language_options, {}, class: "form-control" %>
+    </fieldset>
+    <fieldset>
       <%= f.label "Weight k/g" %>
       <%= f.number_field :weight %>
     </fieldset>
