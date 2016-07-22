@@ -5,14 +5,14 @@
 		<%= form_tag('/profiles/search_results', method: :get) %>
       <%= label_tag("search[gender]", "Gender", for: "search[gender]") %>
       <%= select_tag("search[gender]", gender_options, class: "form-control") %>
-
+      
       <%= label_tag("search[ethnicity]", "Ethnicity", for: "search[ethnicity]") %>
       <%= select_tag("search[ethnicity]", ethnicity_options, class: "form-control") %>
-    
+      
       <fieldset>
         <%= label_tag("search[min_age]", "Min. Age", for: "search[min_age]") %>
         <%= number_field_tag("search[min_age]", params[:search][:min_age], class: "form-control") %>
-
+        
         <%= label_tag("search[max_age]", "Max. Age", for: "search[max_age]") %>
         <%= number_field_tag("search[max_age]", params[:search][:max_age], class: "form-control") %>
       </fieldset>
@@ -23,17 +23,17 @@
         
         <%= label_tag("search[country]", "Country", for: "search[country]") %>
         <%= text_field_tag("search[country]", params[:search][:country], class: "form-control") %>
-
+        
         <%= label_tag("search[distance]", "Distance", for: "search[distance]") %>
         <%= select_tag("search[distance]", distance_options, class: "form-control") %>
       </fieldset>
       
 			<%= submit_tag("Filter Results", class: "btn btn-info mt-10 form-control") %>
 	</div>
-
+  
 	<div class="search-results col-sm-9">
 	  <h2>Search results:</h2>
-	
+	  
 		<% @profile_results.each do |profile_result| %>
       <div class="row">
         <div class="col-sm-3">
@@ -42,20 +42,20 @@
          
         <div class="col-sm-9">
           <h3><%= profile_result.username %></h3>
-
+          
           <dl>
             <dt>Age</dt>
             <dd></dd>
-
+            
             <dt>Location</dt>
             <dd><%= profile_result.geocoder_input %></dd>
-
+            
             <dt>Gender</dt>
             <dd><%= profile_result.gender %></dd>
-
+            
             <dt>Ethnicity</dt>
             <dd><%= profile_result.ethnicity %></dd>
-
+            
             <dt>Biography</dt>
             <dd><%= profile_result.biography %></dd>
           </dl>
@@ -65,7 +65,3 @@
 		<% end %>		
 	</div>
 </div>
-  
-
-
-
