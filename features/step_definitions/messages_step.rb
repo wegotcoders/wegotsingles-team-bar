@@ -21,12 +21,24 @@ Given(/^The customer has a profile$/) do
 end
 
 Given(/^They have been sent at least one message$/) do
-  Message.create! body: "Hello there", sender: @customer_one, receiver:@customer
-  Message.create! body: "Hi", sender: @customer_two, receiver:@customer
+  @message_one = Message.create!(body: "Hello there", sender: @customer_one, receiver:@customer)
+  @message_two = Message.create!(body: "Hi", sender: @customer_two, receiver:@customer)
 end
 
 Given(/^They visit their profile page$/) do
   visit "/profiles/#{@customer.profile.id}"
+end
+
+When(/^They enter text to the reply text field$/) do
+  fill_in "message_#{@message_one.id}_body", with: "Hello also"
+end
+
+When(/^They hit the reply button$/) do
+  click_on "message_#{@message_one.id}_reply"
+end
+
+Then(/^They should see an indication that the message has been sent$/) do
+  page.should have_selector ".alert", text: "Your message has been sent"
 end
 
 Then(/^They can view all of their messages$/) do

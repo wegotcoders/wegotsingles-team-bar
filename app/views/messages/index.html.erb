@@ -1,5 +1,13 @@
 <div class="row inbox">
   <h1>Inbox</h1>
+
+  <% if flash[:notice] %>
+    <div class="notice alert"><%= flash[:notice] %></div>
+  <% end %>
+  <% if flash[:error] %>
+    <div class="notice alert"><%= flash[:error] %></div>
+  <% end %>
+
   <div class="col-xs-12 messages">
     <% @received_messages.each do |message| %>
       <h3>
@@ -8,6 +16,18 @@
       <p>
         <%= message.body %>
       </p>
+      <%= form_for @message do |f| %>
+        <fieldset>
+          <%= f.label "Reply to this message" %>
+          <%= f.text_area :body, id: ["message", message.id, "body"], class: "form_control" %>
+          <%= f.hidden_field :sender_id, value: message.receiver.id %>
+          <%= f.hidden_field :receiver_id, value: message.sender.id %>
+          <%= f.hidden_field :replied_to_id, value: message.id %>
+        </fieldset>
+        <fieldset>
+          <%= f.submit "Reply", id: ["message", message.id, "reply"].join("_"), class: "form_control" %>
+        </fieldset>
+      <% end %>
     <% end %>
   </div>
 </div>
