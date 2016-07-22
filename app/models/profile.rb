@@ -1,4 +1,6 @@
 class Profile < ActiveRecord::Base
+  belongs_to :customer, foreign_key: :customer_id
+
   enum gender: [:male, :female, :transgender]
   mount_uploaders :avatars, AvatarUploader
 
