@@ -1,5 +1,5 @@
 Given(/^there are some registered profiles$/) do
-  Profile.create!({
+  @dafman = Profile.create!({
     username: "Dafman", 
     gender: 0, 
     ethnicity: 0, 
@@ -85,6 +85,10 @@ When(/^they filter by distance from a given location$/) do
   click_on "Filter Results"
 end
 
+When(/^they fill in the search form with a proximity preference$/) do
+  select(5, from: 'search[proximity]')
+end
+
 Then(/^they should see a list of relevant results$/) do
   expect(page).to have_css("h3", text: "Dafman")
   expect(page).to have_css("h3", text: "Suppy")
@@ -119,4 +123,13 @@ Then(/^they should only see results relevant to the location filter$/) do
   expect(page).not_to have_css("h3", text: "Sansa")
   expect(page).not_to have_css("h3", text: "Fred")
   expect(page).not_to have_css("h3", text: "Sally")
+end
+
+Then(/^they should only see results relevant to the proximity filter$/) do
+  expect(page).to have_css("h3", text: "Dafman")
+  expect(page).not_to have_css("h3", text: "Suppy")
+  expect(page).to have_css("h3", text: "Tammy")
+  expect(page).not_to have_css("h3", text: "Sansa")
+  expect(page).to have_css("h3", text: "Fred")
+  expect(page).to have_css("h3", text: "Sally")
 end

@@ -9,7 +9,7 @@
     </fieldset>
     <fieldset>
       <%= f.label :biography %>
-      <%= f.text_area :biography %>
+      <%= f.text_area :biography, class: "form-control" %>
     </fieldset>
     <fieldset>
       <%= f.label "Do you drink?" %>
@@ -17,15 +17,23 @@
     </fieldset>
     <fieldset>
       <%= f.label :desires %>
-      <%= f.text_area :desires %>
+      <%= f.text_area :desires, class: "form-control" %>
     </fieldset>
     <fieldset>
       <%= f.label "Do you smoke?" %>
-      <%= f.check_box 'smoker' %>
+      <%= f.check_box 'smoker', class: "form-control" %>
     </fieldset>
     <fieldset>
       <%= f.label "Select your Star Sign" %>
-      <%= f.select :star_sign, Profile::STAR_SIGNS %>
+      <%= f.select :star_sign, star_sign_options, {}, class: "form-control" %>
+    </fieldset>
+    <fieldset>
+      <%= f.label "Select your Religious Beliefs" %>
+      <%= f.select :religion, religion_options, {}, class: "form-control" %>
+    </fieldset>
+    <fieldset>
+      <%= f.label "Weight k/g" %>
+      <%= f.number_field :weight %>
     </fieldset>
     <%= f.submit "Save" %>
   <% end %>

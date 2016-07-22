@@ -8,23 +8,44 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class="wrapper">
+    <header class="container-fluid primary">
+      <div class="row">
+        <div class="col-sm-3">
+          <%= image_tag("logo.png", alt: "We Got Singles Logo") %>
+        </div>
 
-	<header class="row primary">
-		<div class="col-sm-3">
-      <%= image_tag("logo.png", alt: "We Got Singles Logo") %>
-		</div>
-	</header>
+        <div class="col-sm-2 col-sm-offset-7">
+          <ul>
+            <% if current_customer %>
+              <li><%= link_to 'Sign Out', destroy_customer_session_path, method: :delete, class: "btn btn-info" %></li>
+            <% else %>
+              <li><%= link_to 'Sign In', new_customer_session_path, class: "btn btn-info" %></li>
+              <li><%= link_to 'Register', new_customer_registration_path, class: "btn btn-warning" %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </header>
 
-	<main class="container">
-    <%= yield %>
-	</main>
+    <%= render "shared/nav.html.erb" %>
 
-  <footer class="primary">
-    &#169; 2016 We Got Coders
-  </footer>
-   
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <div class="flash-messages">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+    </div>
+    
+    <main class="container">
+      <%= yield %>
+    </main>
+
+    <footer class="primary">
+      &#169; 2016 We Got Coders
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  </div>
 
 </body>
 </html>

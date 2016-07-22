@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :customers, controllers: { registrations: 'registrations' }
+
   root 'pages#home'
   
   post 'profiles/:id/delete_image', to: 'profiles#delete_image'
