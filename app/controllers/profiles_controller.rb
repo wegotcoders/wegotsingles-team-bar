@@ -6,17 +6,14 @@ class ProfilesController < ApplicationController
 
   def delete_image
     images=@profile.avatars
-    if params[:index_tag].to_i == 0
-      images=[]
-    else
-      images.delete_at(params[:index_tag].to_i)
-    end
+    deleted_image=images.delete_at(params[:index_tag].to_i)
+    deleted_image.try(:remove!)
     @profile.avatars=images
-    @profile.save!
     redirect_to :back
   end
 
   def search
+    @background_image = "../images/dating-2.jpeg"
   end
 
   def edit
@@ -48,7 +45,11 @@ class ProfilesController < ApplicationController
     unless params[:gender].blank?
       all = all.where(gender: params[:gender])
     end
-
+    
+    unless params[:industry].blank?
+      all = all.where(industry: params[:industry])
+    end
+    
     unless params[:min_age].blank?
       all = all.where("date_of_birth < ?", get_date_paramater(params[:min_age]))
     end

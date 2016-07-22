@@ -51,19 +51,20 @@ ActiveRecord::Schema.define(version: 20160722133652) do
     t.datetime "updated_at",                 null: false
     t.string   "username"
     t.integer  "gender"
-    t.boolean  "drinker"
     t.integer  "ethnicity"
-    t.text     "biography",     default: ""
+
     t.date     "date_of_birth"
-    t.text     "desires",       default: ""
-    t.boolean  "smoker"
+    t.boolean  "drinker"
     t.string   "town_city"
     t.string   "country"
+    t.text     "biography",     default: ""
+    t.text     "desires",       default: ""
+    t.boolean  "smoker"
     t.decimal  "latitude"
     t.decimal  "longitude"
-    t.string   "avatars",                                 array: true
-    t.decimal  "weight"
     t.string   "industry"
+    t.decimal  "weight"
+    t.string   "avatars",                                 array: true
     t.string   "religion"
   end
 

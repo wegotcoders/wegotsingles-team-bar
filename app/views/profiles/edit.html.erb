@@ -1,68 +1,70 @@
 <div class="row">
-  <h1>Your Profile</h1>
-  <div class="col-xs-12">
+  <div class="center-content col-sm-8 col-sm-offset-2">
+    <h1>Your Profile</h1>
 
-  <%= form_for @profile, html: { multipart: true } do |f| %>
-    <fieldset>
-      <% if @profile.avatars %>
-        <% @profile.avatars.each do |image| %> 
-          <%= image_tag(image.url, class: "img-responsive", alt: "Cinque Terre", width: "304", height: "236") %>
-          <% break %>
-        <% end %> 
-      <% end %>
-    </fieldset>
-    <fieldset>
-      <%= f.label "Upload your Avatar" %>
-      <%= f.file_field :avatars, multiple: true %>
-    </fieldset>
-    <fieldset>
-      <a href="#deleteImages" onclick="showDiv()" >Delete Images</a>
-    </fieldset>
-    <fieldset>
-      <%= f.label :biography %>
-      <%= f.text_area :biography, class: "form-control" %>
-    </fieldset>
-    <fieldset>
-      <%= f.label "Do you drink?" %>
-      <%= f.check_box 'drinker' %>
-    </fieldset>
-    <fieldset>
-      <%= f.label :desires %>
-      <%= f.text_area :desires, class: "form-control" %>
-    </fieldset>
-    <fieldset>
-      <%= f.label "Do you smoke?" %>
-      <%= f.check_box 'smoker', class: "form-control" %>
-    </fieldset>
-    <fieldset>
-      <%= f.label "Select your Star Sign" %>
-      <%= f.select :star_sign, star_sign_options, {}, class: "form-control" %>
-    </fieldset>
-    <fieldset>
-      <%= f.label "Select your Religious Beliefs" %>
-      <%= f.select :religion, religion_options, {}, class: "form-control" %>
-    </fieldset>
-    <fieldset>
-      <%= f.label "Weight k/g" %>
-      <%= f.number_field :weight %>
-    </fieldset>
-    <%= f.submit "Save" %>
-  <% end %>
-  <div id="deleteImages"  style="display:none;" class="answer_list" > 
-    <% if @profile.avatars? %>
-      <% @profile.avatars.each_with_index do |image,index| %>
-        <fieldset>
-          <%= image_tag(image.url, class: "img-responsive", alt: "Cinque Terre", width: "304", height: "236") %>
-          <%= form_tag("/profiles/#{@profile.id}/delete_image", method: :post) %>
-          <%= hidden_field_tag("index_tag", index) %>
-        </fieldset>
-        <fieldset>
-          <%= submit_tag("Delete") %>
-        </fieldset>
-      <% end %>
+    <%= form_for @profile, html: { multipart: true } do |f| %>
+      <fieldset>
+        <% if @profile.avatars.any? %>
+          <% @profile.avatars.each do |image| %> 
+            <%= image_tag(image.url, class: "img-responsive", alt: "Cinque Terre", width: "304", height: "236") %>
+            <% break %>
+          <% end %> 
+        <% else %>
+          <%= image_tag "placeholder.png", class: "profile-thumbnail" %>
+        <% end %>
+      </fieldset>
+      <fieldset>
+        <%= f.label "Upload an image" %>
+        <%= f.file_field :avatars, multiple: true %>
+      </fieldset>
+      <fieldset>
+        <a href="#deleteImages" onclick="showDiv()" >Delete Images</a>
+      </fieldset>
+      <fieldset>
+        <%= f.label :biography %>
+        <%= f.text_area :biography, class: "form-control" %>
+      </fieldset>
+      <fieldset>
+        <%= f.label :desires %>
+        <%= f.text_area :desires, class: "form-control" %>
+      </fieldset>
+      <fieldset>
+        <%= f.label "Select your Star Sign" %>
+        <%= f.select :star_sign, star_sign_options, {}, class: "form-control" %>
+      </fieldset>
+      <fieldset>
+        <%= f.label "Select your Religious Beliefs" %>
+        <%= f.select :religion, religion_options, {}, class: "form-control" %>
+      </fieldset>
+      <fieldset>
+        <%= f.label "Weight k/g" %>
+        <%= f.number_field :weight, class: "form-control" %>
+      </fieldset>
+      <fieldset>
+        <%= f.label "Do you drink?" %>
+        <%= f.check_box 'drinker', class: "form-control" %>
+      </fieldset>
+      <fieldset>
+        <%= f.label "Do you smoke?" %>
+        <%= f.check_box 'smoker', class: "form-control" %>
+      </fieldset>
+      <%= f.submit "Save", class: "btn btn-info form-control mt-10" %>
     <% end %>
+    <div id="deleteImages"  style="display:none;" class="answer_list" > 
+      <% if @profile.avatars? %>
+        <% @profile.avatars.each_with_index do |image,index| %>
+          <fieldset>
+            <%= image_tag(image.url, class: "img-responsive", alt: "Cinque Terre", width: "304", height: "236") %>
+            <%= form_tag("/profiles/#{@profile.id}/delete_image", method: :post) %>
+            <%= hidden_field_tag("index_tag", index) %>
+          </fieldset>
+          <fieldset>
+            <%= submit_tag("Delete") %>
+          </fieldset>
+        <% end %>
+      <% end %>
+      </div>
     </div>
-  </div>
 </div>
 
 <script language="javascript">
