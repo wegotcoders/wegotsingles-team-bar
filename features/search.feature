@@ -11,6 +11,12 @@ Feature: Searching
       And they fill in the search form with a gender preference
       And they click on 'Search'
     Then they should see a list of relevant results
+  
+  Scenario: Searching by industry
+    Given they are on the search page
+      And they fill in the search form with an industry preference
+      And they click on 'Search'
+    Then they should only see results relevant to industry filter
 
   Scenario: Filtering by Ethnicity
     Given they are on the search page
@@ -34,7 +40,9 @@ Feature: Searching
     Then they should only see results relevant to the location filter
 
   Scenario: Filtering by proximity to current user
-    Given they are logged in
+    Given A customer has previously registered
+      And They have created a profile
+      And A customer is signed in
       And they are on the search page
     When they fill in the search form with a proximity preference
       And they click on 'Search'

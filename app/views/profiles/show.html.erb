@@ -1,22 +1,42 @@
 <div class="row">
-  <% if flash[:notice] %>
-    <div class="notice alert"><%= flash[:notice] %></div>
-  <% end %>
-  
-  <span><%= link_to "Edit Profile", [:edit, @profile] %></span>
-  <h1>Profile</h1>
-  <div class="inbox">
-    <%= link_to "Inbox", messages_path %>
-  </div>
-  <div class="col-xs-12">
-    <h3><%= @profile.customer.username %></h3>
-    <p id="star-sign">Star Sign</p>
-    <%= @profile.star_sign %>
-    <p>
-      <p id="weight">Weight</p>
-    </p>
-    <p>
-      <%= @profile.weight %>kg
-    </p>
+  <div class="center-content col-sm-10 col-sm-offset-1">
+    <div class="row">
+      <div class="inbox">
+        <%= link_to "Inbox", messages_path %>
+      </div>
+      <span><%= link_to "Edit Profile", [:edit, @profile] %></span>
+      <h1>Profile</h1>
+
+      <div class="col-sm-4">
+        <% if @profile.avatars.any? %>
+        <% @profile.avatars.each do |image| %> 
+            <%= image_tag(image.url, class: "img-responsive", alt: "Cinque Terre", width: "304", height: "236", class: "profile-thumbnail") %>
+            <% break %>
+          <% end %>
+        <% else %>
+          <%= image_tag "placeholder.png", class: "profile-thumbnail" %>
+        <% end %>
+      </div>
+
+       <div class="col-sm-8">
+        <h3><%= @profile.customer.username %></h3>
+          <dl>
+            <dt>Age</dt>
+            <dd></dd>
+
+            <dt>Location</dt>
+            <dd><%= @profile.geocoder_input %></dd>
+
+            <dt>Gender</dt>
+            <dd><%= @profile.gender %></dd>
+
+            <dt>Ethnicity</dt>
+            <dd><%= @profile.ethnicity %></dd>
+
+            <dt>Biography</dt>
+            <dd><%= @profile.biography %></dd>
+          </dl>
+      </div>
+    </div>
   </div>
 </div>
