@@ -2,6 +2,7 @@ class Profile < ActiveRecord::Base
   belongs_to :customer, foreign_key: :customer_id
 
   enum gender: [:male, :female, :transgender]
+
   mount_uploaders :avatars, AvatarUploader
 
   STAR_SIGNS = [['Aries','aries'],['Taurus','taurus'],['Gemini','gemini'],
@@ -15,7 +16,7 @@ class Profile < ActiveRecord::Base
 
   geocoded_by :geocoder_input
   after_validation :geocode
-  
+
   def age
     dob = self.date_of_birth
     now = Time.now.utc.to_date

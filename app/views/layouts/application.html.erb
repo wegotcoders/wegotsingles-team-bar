@@ -17,8 +17,12 @@
 
         <div class="col-sm-2 col-sm-offset-7">
           <ul>
-            <li><a href="#" class="btn btn-info">Sign In</a></li>
-            <li><a href="#" class="btn btn-warning">Register</a></li>
+            <% if current_customer %>
+              <li><%= link_to 'Sign Out', destroy_customer_session_path, method: :delete, class: "btn btn-info" %></li>
+            <% else %>
+              <li><%= link_to 'Sign In', new_customer_session_path, class: "btn btn-info" %></li>
+              <li><%= link_to 'Register', new_customer_registration_path, class: "btn btn-warning" %></li>
+            <% end %>
           </ul>
         </div>
       </div>
@@ -26,9 +30,12 @@
 
     <%= render "shared/nav.html.erb" %>
 
-    <main class="container">
+    <div class="flash-messages">
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
+    </div>
+    
+    <main class="container">
       <%= yield %>
     </main>
 
