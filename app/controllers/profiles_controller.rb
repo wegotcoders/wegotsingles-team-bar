@@ -1,8 +1,6 @@
 class ProfilesController < ApplicationController
   before_filter :find_profile
-
-  def show
-  end
+  before_filter :set_background
 
   def delete_image
     images=@profile.avatars
@@ -13,7 +11,7 @@ class ProfilesController < ApplicationController
   end
 
   def search
-    @background_image = "../images/dating-2.jpeg"
+    @background_image = "search-background"
   end
 
   def edit
@@ -45,11 +43,11 @@ class ProfilesController < ApplicationController
     unless params[:gender].blank?
       all = all.where(gender: params[:gender])
     end
-    
+
     unless params[:industry].blank?
       all = all.where(industry: params[:industry])
     end
-    
+
     unless params[:min_age].blank?
       all = all.where("date_of_birth < ?", get_date_paramater(params[:min_age]))
     end
@@ -96,6 +94,10 @@ class ProfilesController < ApplicationController
     image+=new_image
     @profile.avatars=image
     @profile.save!
+  end
+
+  def set_background
+    @background_image = "profile-background"
   end
 
 end
