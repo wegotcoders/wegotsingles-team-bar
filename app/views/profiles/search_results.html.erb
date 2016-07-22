@@ -37,7 +37,14 @@
 		<% @profile_results.each do |profile_result| %>
       <div class="row">
         <div class="col-sm-3">
-          <%= image_tag "placeholder.png", class: "profile-thumbnail" %>
+          <% if profile_result.avatars.any? %>
+            <% profile_result.avatars.each do |image| %> 
+              <%= image_tag(image.url, class: "img-responsive", alt: "Cinque Terre", width: "304", height: "236") %>
+              <% break %>
+            <% end %>
+          <% else %>
+            <%= image_tag "placeholder.png", class: "profile-thumbnail" %>
+          <% end %>
         </div>
          
         <div class="col-sm-9">

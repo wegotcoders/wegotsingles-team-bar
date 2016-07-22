@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160721154054) do
+ActiveRecord::Schema.define(version: 20160721151257) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,14 +35,6 @@ ActiveRecord::Schema.define(version: 20160721154054) do
   add_index "customers", ["email"], name: "index_customers_on_email", unique: true, using: :btree
   add_index "customers", ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true, using: :btree
 
-  create_table "messages", force: :cascade do |t|
-    t.text     "body"
-    t.integer  "sender_id"
-    t.integer  "receiver_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
   create_table "profiles", force: :cascade do |t|
     t.string   "star_sign"
     t.integer  "customer_id"
@@ -50,19 +42,19 @@ ActiveRecord::Schema.define(version: 20160721154054) do
     t.datetime "updated_at",                 null: false
     t.string   "username"
     t.integer  "gender"
-    t.boolean  "drinker"
     t.integer  "ethnicity"
-    t.text     "biography",     default: ""
     t.date     "date_of_birth"
-    t.text     "desires",       default: ""
-    t.boolean  "smoker"
+    t.boolean  "drinker"
     t.string   "town_city"
     t.string   "country"
+    t.text     "biography",     default: ""
+    t.text     "desires",       default: ""
+    t.boolean  "smoker"
     t.decimal  "latitude"
     t.decimal  "longitude"
-    t.string   "avatars",                                 array: true
-    t.decimal  "weight"
     t.string   "industry"
+    t.decimal  "weight"
+    t.string   "avatars",                                 array: true
     t.string   "religion"
   end
 

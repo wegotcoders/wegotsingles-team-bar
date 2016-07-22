@@ -32,14 +32,15 @@
     <% if current_customer %>
       <%= render "shared/nav.html.erb" %>
     <% end %>
+     
+    <div class="flash-messages">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+    </div>
 
     <main>
-      <div class="flash-messages">
-        <p class="notice"><%= notice %></p>
-        <p class="alert"><%= alert %></p>
-      </div>
-
       <div class="container content">
+        <div class="clearfix"></div>
         <%= yield %>
       </div>
     </main>
