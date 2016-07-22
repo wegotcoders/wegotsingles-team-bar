@@ -30,7 +30,6 @@ class Profile < ActiveRecord::Base
   def completedness
     total_attributes=self.attribute_names - EXCLUDED_ATTRIBUTES
     filled_attributes = total_attributes.inject(0) do |sum, attribute| 
-      # binding.pry
       sum += 1 if self.send("#{attribute}").present? 
       sum
     end
