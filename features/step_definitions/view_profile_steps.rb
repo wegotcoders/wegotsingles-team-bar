@@ -20,7 +20,6 @@ Given(/^They click on another customers profile$/) do
 end
 
 Then(/^They see the customers profile details$/) do
-  save_and_open_page
   expect(page).to have_content('Profile')
   expect(page).to have_content('Leo')
   # %%%TODO (Supreeth) Display profile completedness somwhere on the page
