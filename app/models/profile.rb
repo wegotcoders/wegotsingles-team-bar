@@ -28,10 +28,11 @@ class Profile < ActiveRecord::Base
 
   def completedness
     total_attributes=self.attribute_names - EXCLUDED_ATTRIBUTES
-    filled_attributes=0
-    total_attributes.each do |attribute|
-      filled_attributes+=1 if self.send("#{attribute}").present?
+    filled_attributes = total_attributes.inject(0) do |sum, attribute| 
+      # binding.pry
+      sum += 1 if self.send("#{attribute}").present? 
+      sum
     end
-    ((filled_attributes * 100)/total_attributes.length)
+    ((filled_attributes * 100) / total_attributes.length)
   end
 end
