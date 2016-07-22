@@ -7,13 +7,13 @@ class ProfilesController < ApplicationController
   def delete_image
     images=@profile.avatars
     if params[:index_tag].to_i == 0
-      @profile.avatars=[]
+      images=[]
     else
       images.delete_at(params[:index_tag].to_i)
-      @profile.avatars=images
     end
+    @profile.avatars=images
     @profile.save!
-    redirect_to @profile
+    redirect_to :back
   end
 
   def search
