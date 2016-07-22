@@ -38,7 +38,7 @@ Feature: Searching
       And they click on 'Search'
     When they filter by distance from a given location
     Then they should only see results relevant to the location filter
-  
+
   Scenario: Filtering by proximity to current user
     Given A customer has previously registered
       And They have created a profile
