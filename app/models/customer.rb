@@ -10,6 +10,6 @@ class Customer < ActiveRecord::Base
   has_many :sent_messages, class_name: 'Message', foreign_key: :sender_id
 
   def messages
-    self.received_messages
+    self.messages
   end
 end
