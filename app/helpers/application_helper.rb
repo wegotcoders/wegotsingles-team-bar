@@ -69,4 +69,29 @@ module ApplicationHelper
   end
 
 
+  def language_options
+    options_for_select([
+      ['Language...', nil],
+      ['Polish', 0],
+      ['Punjabi', 1],
+      ['Urdu', 2],
+      ['Bengali', 3],
+      ['Gujarati', 4],
+      ['Arabic', 5]
+      ['French', 6],
+      ['Portuguese',7],
+      ['Spanish',8],
+      ['Tamil',9],
+      ['Turkish',10],
+      ['Italian',11],
+      ['Somali',12],
+      ['Lithuanian',13],
+      ['German',14],
+      ['Farsi',15],
+      ['Filipino',16],
+      ['Romanian',17]
+    ], get_pre_selected_option("language"))
+  end
+
+
 end
