@@ -4,8 +4,19 @@
 
   <%= form_for @profile, html: { multipart: true } do |f| %>
     <fieldset>
+      <% if @profile.avatars %>
+        <% @profile.avatars.each do |image| %> 
+          <%= image_tag(image.url, class: "img-responsive", alt: "Cinque Terre", width: "304", height: "236") %>
+          <% break %>
+        <% end %> 
+      <% end %>
+    </fieldset>
+    <fieldset>
       <%= f.label "Upload your Avatar" %>
       <%= f.file_field :avatars, multiple: true %>
+    </fieldset>
+    <fieldset>
+      <a href="#deleteImages" onclick="showDiv()" >Delete Images</a>
     </fieldset>
     <fieldset>
       <%= f.label :biography %>
@@ -37,17 +48,25 @@
     </fieldset>
     <%= f.submit "Save" %>
   <% end %>
-  <% if @profile.avatars? %>
-    <% @profile.avatars.each_with_index do |image,index| %>
-      <fieldset>
-        <%= image_tag(image.url) %>
-        <%= form_tag("/profiles/#{@profile.id}/delete_image", method: :post) %>
-        <%= hidden_field_tag("index_tag", index) %>
-      </fieldset>
-      <fieldset>
-        <%= submit_tag("Delete") %>
-      </fieldset>
+  <div id="deleteImages"  style="display:none;" class="answer_list" > 
+    <% if @profile.avatars? %>
+      <% @profile.avatars.each_with_index do |image,index| %>
+        <fieldset>
+          <%= image_tag(image.url, class: "img-responsive", alt: "Cinque Terre", width: "304", height: "236") %>
+          <%= form_tag("/profiles/#{@profile.id}/delete_image", method: :post) %>
+          <%= hidden_field_tag("index_tag", index) %>
+        </fieldset>
+        <fieldset>
+          <%= submit_tag("Delete") %>
+        </fieldset>
+      <% end %>
     <% end %>
-  <% end %>
+    </div>
   </div>
 </div>
+
+<script language="javascript">
+  function showDiv() {
+    document.getElementById('deleteImages').style.display = "block";
+  }
+</script>
