@@ -1,6 +1,5 @@
 Feature: Messages
 
-  @wip
   Scenario: A Customer sees a list of messages in their inbox
     Given A customer has previously registered
       And There are registered customers

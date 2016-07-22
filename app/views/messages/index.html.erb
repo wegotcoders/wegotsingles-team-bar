@@ -1,11 +1,13 @@
-<div class="row">
+<div class="row inbox">
   <h1>Inbox</h1>
-  <% @received_messages.each do |message| %>
-    <h3>
-      <%= message.sender.username %>
-    </h3>
-    <p>
-      <%= message.body %>
-    </p>
-  <% end %>
+  <div class="col-xs-12 messages">
+    <% @received_messages.each do |message| %>
+      <h3>
+        <%= message.sender.username %>
+      </h3>
+      <p>
+        <%= message.body %>
+      </p>
+    <% end %>
+  </div>
 </div>

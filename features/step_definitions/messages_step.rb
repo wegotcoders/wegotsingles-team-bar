@@ -30,7 +30,6 @@ Given(/^They visit their profile page$/) do
 end
 
 Then(/^They can view all of their messages$/) do
-  save_and_open_page
   expect(page).to have_css("h1", text: "Inbox")
   expect(page).to have_css("h3", text: @customer_one.username)
   expect(page).to have_css("h3", text: @customer_two.username)
