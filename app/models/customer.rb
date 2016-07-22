@@ -12,8 +12,5 @@ class Customer < ActiveRecord::Base
   after_save(on: :create) do
     Profile.create({customer_id: self.id})
   end
-
-  def messages
-    self.messages
-  end
+  
 end
