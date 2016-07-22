@@ -54,6 +54,8 @@ ActiveRecord::Schema.define(version: 20160721151257) do
     t.decimal  "longitude"
     t.string   "avatars",                                 array: true
     t.decimal  "weight"
+    t.string   "industry"
+    t.string   "religion"
   end
 
 end

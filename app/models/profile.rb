@@ -5,6 +5,12 @@ class Profile < ActiveRecord::Base
 
   mount_uploaders :avatars, AvatarUploader
 
+  STAR_SIGNS = [['Aries','aries'],['Taurus','taurus'],['Gemini','gemini'],
+    ['Cancer','cancer'],['Leo','leo'],['Virgo','virgo'],['Pisces','pisces'],
+    ['Libra','libra'],['Scorpio','scorpio'],['Sagittarius','sagittarius'],
+    ['Capricorn','capricorn'],['Aquarius','aquarius']]
+
+
   enum ethnicity: [:caucasian, :black, :hispanic, :indian, :middle_eastern]
 
   geocoded_by :geocoder_input
