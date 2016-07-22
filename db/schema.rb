@@ -46,24 +46,24 @@ ActiveRecord::Schema.define(version: 20160721154054) do
   create_table "profiles", force: :cascade do |t|
     t.string   "star_sign"
     t.integer  "customer_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.string   "username"
     t.integer  "gender"
     t.boolean  "drinker"
-    t.text     "biography"
-    t.text     "desires"
-    t.boolean  "smoker"
     t.integer  "ethnicity"
+    t.text     "biography",     default: ""
     t.date     "date_of_birth"
+    t.text     "desires",       default: ""
+    t.boolean  "smoker"
     t.string   "town_city"
     t.string   "country"
     t.decimal  "latitude"
     t.decimal  "longitude"
+    t.string   "avatars",                                 array: true
     t.decimal  "weight"
-    t.integer  "weight_unit"
     t.string   "industry"
-    t.string   "avatars",                    array: true
+    t.string   "religion"
   end
 
 end
