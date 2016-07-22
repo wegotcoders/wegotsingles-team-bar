@@ -1,5 +1,5 @@
 Feature: View Profile
-@wip
+
   Scenario: A customer views someone's profile
     Given A customer has previously registered
       And They have created a profile
