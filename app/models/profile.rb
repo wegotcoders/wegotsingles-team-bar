@@ -4,7 +4,7 @@ class Profile < ActiveRecord::Base
   enum gender: [:male, :female, :transgender]
   enum ethnicity: [:caucasian, :black, :hispanic, :indian, :middle_eastern]
   enum industry: [:accountancy, :admin, :banking, :building, :charity, :education, :engineering, :hospitality, :tourism, :human_resource, :industrial, :it, :legal, :marketing, :sales, :telecommunications]
-  
+
   mount_uploaders :avatars, AvatarUploader
 
   STAR_SIGNS = [['Aries','aries'],['Taurus','taurus'],['Gemini','gemini'],
@@ -14,7 +14,7 @@ class Profile < ActiveRecord::Base
 
   geocoded_by :geocoder_input
   after_validation :geocode
-  
+
   def age
     dob = self.date_of_birth
     now = Time.now.utc.to_date

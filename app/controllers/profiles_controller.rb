@@ -4,6 +4,18 @@ class ProfilesController < ApplicationController
   def show
   end
 
+  def delete_image
+    images=@profile.avatars
+    if params[:index_tag].to_i == 0
+      images=[]
+    else
+      images.delete_at(params[:index_tag].to_i)
+    end
+    @profile.avatars=images
+    @profile.save!
+    redirect_to :back
+  end
+
   def search
     @background_image = "../images/dating-2.jpeg"
   end
@@ -84,7 +96,10 @@ class ProfilesController < ApplicationController
   end
 
   def add_images(new_image)
-    @profile.avatars+=new_image
+    image=@profile.avatars
+    image+=new_image
+    @profile.avatars=image
+    @profile.save!
   end
 
 end
