@@ -5,6 +5,7 @@
   <span><%= link_to "Edit Profile", [:edit, @profile] %></span>
   <h1>Profile</h1>
   <div class="col-xs-12">
+    <h3><%= @profile.customer.username %></h3>
     <p id="star-sign">Star Sign</p>
     <%= @profile.star_sign %>
     <p>
