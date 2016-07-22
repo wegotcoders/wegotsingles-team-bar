@@ -42,8 +42,8 @@ ActiveRecord::Schema.define(version: 20160721151257) do
     t.datetime "updated_at",                 null: false
     t.string   "username"
     t.integer  "gender"
-    t.boolean  "drinker"
     t.integer  "ethnicity"
+    t.boolean  "drinker"
     t.text     "biography",     default: ""
     t.date     "date_of_birth"
     t.text     "desires",       default: ""
@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 20160721151257) do
     t.string   "country"
     t.decimal  "latitude"
     t.decimal  "longitude"
-    t.string   "avatars",                                 array: true
+    t.string   "avatars",       default: [],              array: true
     t.decimal  "weight"
     t.string   "industry"
     t.string   "religion"
