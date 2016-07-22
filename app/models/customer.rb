@@ -8,6 +8,10 @@ class Customer < ActiveRecord::Base
 
   has_many :received_messages, class_name: 'Message', foreign_key: :receiver_id
   has_many :sent_messages, class_name: 'Message', foreign_key: :sender_id 
+  
+  after_save(on: :create) do
+    Profile.create({customer_id: self.id})
+  end
 
   def messages
     self.received_messages
