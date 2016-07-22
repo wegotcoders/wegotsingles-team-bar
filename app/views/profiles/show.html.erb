@@ -9,6 +9,7 @@
     <%= link_to "Inbox", messages_path %>
   </div>
   <div class="col-xs-12">
+    <h3><%= @profile.customer.username %></h3>
     <p id="star-sign">Star Sign</p>
     <%= @profile.star_sign %>
     <p>

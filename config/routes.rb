@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   resources :messages, :only => :index
 
+  post 'profiles/:id/delete_image', to: 'profiles#delete_image'
+
   resources :profiles, :only => [:show, :edit, :update] do
     collection do
       get :search
