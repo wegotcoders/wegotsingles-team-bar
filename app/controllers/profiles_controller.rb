@@ -6,13 +6,9 @@ class ProfilesController < ApplicationController
   
   def delete_image
     images=@profile.avatars
-    if params[:index_tag].to_i == 0
-      images=[]
-    else
-      images.delete_at(params[:index_tag].to_i)
-    end
+    deleted_image=images.delete_at(params[:index_tag].to_i)
+    deleted_image.try(:remove!)
     @profile.avatars=images
-    @profile.save!
     redirect_to :back
   end
 
