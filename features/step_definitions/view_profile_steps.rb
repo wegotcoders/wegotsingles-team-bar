@@ -1,16 +1,18 @@
 Given(/^A customer has previously registered$/) do
-  Customer = Struct.new(:id, :name, :password, :password_confirmation)
-  @customer = Customer.new(:id => 1, :name => Faker::Name.first_name, :password => "12345",  :password_confirmation => "12345")
+  @customer = Customer.create!(:email => Faker::Internet.email,
+    :password => "password",  :password_confirmation => "password")
 end
 
 Given(/^They have created a profile$/) do
-  @profile = Profile.create!(:star_sign => "Leo", :customer_id => @customer.id[:id], :biography => "This is a biography",
+  @profile = Profile.create!(:star_sign => "Leo", :customer => @customer, :biography => "This is a biography",
                             :desires => "These are my desires")
 end
 
 Given(/^A customer is signed in$/) do
-  # %%%TODO(Dafin) Implement sessions
-  # page.set_rack_session('warden.user.buyer.key' => Customer.serialize_into_session(@customer).unshift('Customer'))
+  visit new_customer_session_path
+  fill_in 'Email', :with => @customer.email
+  fill_in 'Password', :with => 'password'
+  click_button 'Log in'
 end
 
 
