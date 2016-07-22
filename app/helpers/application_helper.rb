@@ -56,4 +56,16 @@ module ApplicationHelper
       [50, 50]
     ], get_pre_selected_option("distance"))
   end
+  
+  def resource_name
+    :customer
+  end
+
+  def resource
+    @resource ||= Customer.new
+  end
+
+  def devise_mapping
+    @devise_mapping ||= Devise.mappings[:customer]
+  end
 end

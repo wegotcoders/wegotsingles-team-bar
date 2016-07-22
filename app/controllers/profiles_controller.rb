@@ -5,6 +5,7 @@ class ProfilesController < ApplicationController
   end
 
   def search
+    @background_image = "../images/dating-2.jpeg"
   end
 
   def edit
