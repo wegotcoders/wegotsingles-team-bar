@@ -28,11 +28,11 @@ class ProfilesController < ApplicationController
 
   def search_profiles(params)
     all = Profile.unscoped
-    
+
     unless params[:ethnicity].blank?
       all = all.where(ethnicity: params[:ethnicity])
     end
-    
+
     unless params[:gender].blank?
       all = all.where(gender: params[:gender])
     end
@@ -44,11 +44,11 @@ class ProfilesController < ApplicationController
     unless params[:min_age].blank?
       all = all.where("date_of_birth < ?", get_date_paramater(params[:min_age]))
     end
-    
+
     unless params[:max_age].blank?
       all = all.where("date_of_birth > ?", get_date_paramater(params[:max_age]))
     end
-    
+
     unless params[:town_city].blank? || params[:country].blank? || params[:distance].blank?
       location = "#{params[:town_city]}, #{params[:country]}"
       in_range_profiles = Profile.near(location, params[:distance], units: :km)
@@ -58,7 +58,7 @@ class ProfilesController < ApplicationController
     unless params[:proximity].blank? || params[:user_location].blank?
       all = all.near(params[:user_location], params[:proximity], units: :km)
     end
-    
+
     all
   end
 

@@ -1,8 +1,11 @@
 Feature: Searching
 
-  Background: 
+  Background:
     Given there are some registered profiles
-  
+      And A customer has previously registered
+      And They have created a profile
+      And A customer is signed in
+
   Scenario: Searching by gender
     Given they are on the search page
       And they fill in the search form with a gender preference
@@ -29,7 +32,7 @@ Feature: Searching
       And they click on 'Search'
     When they filter by age range
     Then they should only see results relevant to age range filter
-    
+
   Scenario: Filtering by distance from a given location
     Given they are on the search page
       And they fill in the search form with a gender preference

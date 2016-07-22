@@ -44,3 +44,4 @@ Feature: Edit profile
     When They select their star sign
       And They click "Save"
     Then They see the message "Your profile has been successfuly updated!"
+

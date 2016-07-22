@@ -65,10 +65,6 @@ Given(/^they are on the search page$/) do
   visit "/profiles/search"
 end
 
-Given(/^they are logged in$/) do
-  # %%%TODO
-end
-
 Given(/^they fill in the search form with an industry preference$/) do
   select("Legal", from: "search[industry]")
 end

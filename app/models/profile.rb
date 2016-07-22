@@ -1,4 +1,6 @@
 class Profile < ActiveRecord::Base
+  belongs_to :customer, foreign_key: :customer_id
+
   enum gender: [:male, :female, :transgender]
   enum ethnicity: [:caucasian, :black, :hispanic, :indian, :middle_eastern]
   enum industry: [:accountancy, :admin, :banking, :building, :charity, :education, :engineering, :hospitality, :tourism, :human_resource, :industrial, :it, :legal, :marketing, :sales, :telecommunications]

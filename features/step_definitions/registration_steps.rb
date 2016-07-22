@@ -3,7 +3,6 @@ Given(/^they are on the registration page$/) do
 end
 
 When(/^they fill in the form with valid details$/) do
-  save_and_open_page
   fill_in "Username", with: "Finn"
   fill_in "Email", with: "finn@finn.com"
   fill_in "Password", with: "password"
