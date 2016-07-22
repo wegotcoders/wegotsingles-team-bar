@@ -22,7 +22,6 @@ end
 
 Then(/^They see the customers profile details$/) do
   expect(page).to have_content('Profile')
-  save_and_open_page
   expect(page).to have_content('Leo')
-  expect(page).to have_content('23')
+  expect(page).to have_content(@profile.completedness)
 end
