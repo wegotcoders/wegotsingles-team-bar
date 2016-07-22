@@ -1,6 +1,5 @@
 Feature: A Customer Registers
 
-  @wip
   Scenario: A visitor provides a username when they register
     Given they are on the registration page
     When they fill in the form with valid details
