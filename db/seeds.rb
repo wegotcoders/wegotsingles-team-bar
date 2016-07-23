@@ -58,3 +58,10 @@
     town_city: "Hoddesdon",
     country: "United Kingdom"
   })  
+
+customer = Customer.create!(
+  email: 'john@gmail.com', 
+  password: 'topsecret', 
+  password_confirmation: 'topsecret'
+)
+

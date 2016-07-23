@@ -1,10 +1,16 @@
 class ProfilesController < ApplicationController
   before_filter :find_profile
 
-  def show
+  def delete_image
+    images=@profile.avatars
+    deleted_image=images.delete_at(params[:index_tag].to_i)
+    deleted_image.try(:remove!)
+    @profile.avatars=images
+    redirect_to :back
   end
 
   def search
+    @background_image = "search-background"
   end
 
   def edit
@@ -29,26 +35,34 @@ class ProfilesController < ApplicationController
   def search_profiles(params)
     all = Profile.unscoped
 
-    unless params["ethnicity"].blank?
-      all = all.where(ethnicity: params["ethnicity"])
+    unless params[:ethnicity].blank?
+      all = all.where(ethnicity: params[:ethnicity])
     end
 
-    unless params["gender"].blank?
-      all = all.where(gender: params["gender"])
+    unless params[:gender].blank?
+      all = all.where(gender: params[:gender])
     end
 
-    unless params["min_age"].blank?
-      all = all.where("date_of_birth < ?", get_date_paramater(params["min_age"]))
+    unless params[:industry].blank?
+      all = all.where(industry: params[:industry])
     end
 
-    unless params["max_age"].blank?
-      all = all.where("date_of_birth > ?", get_date_paramater(params["max_age"]))
+    unless params[:min_age].blank?
+      all = all.where("date_of_birth < ?", get_date_paramater(params[:min_age]))
     end
 
-    unless params["town_city"].blank? && params["country"].blank? && params["distance"].blank?
-      location = "#{params["town_city"]}, #{params["country"]}"
-      in_range_profiles = Profile.near(location, params["distance"], units: :km)
+    unless params[:max_age].blank?
+      all = all.where("date_of_birth > ?", get_date_paramater(params[:max_age]))
+    end
+
+    unless params[:town_city].blank? || params[:country].blank? || params[:distance].blank?
+      location = "#{params[:town_city]}, #{params[:country]}"
+      in_range_profiles = Profile.near(location, params[:distance], units: :km)
       all = all.merge(in_range_profiles)
+    end
+
+    unless params[:proximity].blank? || params[:user_location].blank?
+      all = all.near(params[:user_location], params[:proximity], units: :km)
     end
 
     all
@@ -75,7 +89,10 @@ class ProfilesController < ApplicationController
   end
 
   def add_images(new_image)
-    @profile.avatars+=new_image
+    image=@profile.avatars
+    image+=new_image
+    @profile.avatars=image
+    @profile.save!
   end
 
 end

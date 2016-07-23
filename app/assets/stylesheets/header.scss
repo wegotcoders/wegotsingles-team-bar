@@ -1,8 +1,14 @@
 header.primary {
-  background-color: #333;
+  $header_height: 60px;
+  
+  background-color: #1b75bc;
   color: #fff;
-  height: 100px;
-  line-height: 100px;
+  height: $header_height;
+  line-height: $header_height;
+  
+  img {
+    height: $header_height;
+  }
   
   ul {
     li {

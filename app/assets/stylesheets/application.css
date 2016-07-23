@@ -14,20 +14,46 @@
  *= require_self
  */
 
+.flash-messages {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 300px;
+  margin-left: -150px;
+}
+
 html, body {
   height: 100%;
+  font-family: 'Lato', sans-serif;
 }
 
 .wrapper {
   position: relative;
   height: auto !important;
   min-height: 100%;
+  background-size: cover;
+}
+
+.navbar {
+  margin-bottom: 0;
+}
+
+.content {
+  padding-bottom: 40px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #1b75bc;
 }
 
 ul {
   margin: 0;
   padding: 0;
   list-style-type: none;
+}
+
+label {
+  margin-top: 10px;
 }
 
 .mt-10 {
@@ -38,14 +64,48 @@ ul {
   margin-top: 20px;
 }
 
+.mb-10 {
+  margin-bottom: 10px;
+}
+
+.mb-20 {
+  margin-bottom: 20px;
+}
+
+.profile-thumbnail {
+  width: 100%;
+}
+
+.center-content {
+  background-color: rgba(255, 255, 255, 0.9);
+  margin: 40px auto;
+  padding: 20px 60px;
+  float: none;  
+}
+
 footer.primary {
   background-color: #333;
   color: #fff;
-  margin-top: 20px;
   text-align: center;
   width: 100%;
   position: absolute;
   bottom: 0;
   height: 40px;
   line-height: 40px;
+}
+
+#home-background {
+  background-image: url('/images/dating.jpg');
+}
+
+#search-background {
+  background-image: url('/images/dating-2.jpeg');
+}
+
+#register-background {
+  background-image: url('/images/dating-3.jpg');
+}
+
+#log-in-background {
+  background-image: url('/images/dating-4.jpg');
 }
