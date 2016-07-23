@@ -1,0 +1,58 @@
+<div class="row">
+  <h1>Conversation with <%= @message.sender.username %></h1>
+
+  <div class="col-xs-12 messages well">
+    <% if @messages %>
+      <% @messages.each do |message| %>
+        <div class="user-message">
+          <img>
+            <% if message.sender.profile.avatars.any? %>
+              <%= message.sender.profile.avatars[0] %>
+            <% else %>
+              <%= image_tag "placeholder.png" %>
+            <% end %>
+          </img>
+          <p class="message">
+            <strong><%= message.sender.username %></strong>
+            <%= message.body %>
+          </p>
+        </div>
+      <% end %>
+    <% end %>
+
+    <div class="user-message">
+      <img>
+        <% if @message.sender.profile.avatars.any? %>
+          <%= @message.sender.profile.avatars[0] %>
+        <% else %>
+          <%= image_tag "placeholder.png" %>
+        <% end %>
+      </img>
+      <p class="message">
+        <strong><%= @message.sender.username %></strong>
+        <%= @message.body %>
+      </p>
+    </div>
+
+    <%= form_for Message.new do |f| %>
+      <fieldset>
+        <div>
+          <img>
+            <% if @message.sender.profile.avatars.any? %>
+              <%= @message.sender.profile.avatars[0] %>
+            <% else %>
+              <%= image_tag "placeholder.png" %>
+            <% end %>
+          </img>
+          <%= f.text_area :body, id: ["message", @message.id, "body"], class: "form-control reply", placeholder: "Reply..." %>
+          <%= f.hidden_field :sender_id, value: @message.receiver.id %>
+          <%= f.hidden_field :receiver_id, value: @message.sender.id %>
+          <%= f.hidden_field :replied_to_id, value: @message.id %>
+        </div>
+      </fieldset>
+      <fieldset>
+        <%= f.submit "Reply", id: ["message", @message.id, "reply"].join("_"), class: "btn btn-info mt-10" %>
+      </fieldset>
+    <% end %>
+  </div>
+</div>

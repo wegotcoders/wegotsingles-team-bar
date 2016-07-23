@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   root 'pages#home'
 
-  resources :messages, :only => [:index, :create]
+  resources :messages, :only => [:index, :create, :show]
 
   post 'profiles/:id/delete_image', to: 'profiles#delete_image'
 

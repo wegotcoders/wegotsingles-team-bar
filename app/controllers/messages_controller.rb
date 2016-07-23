@@ -14,10 +14,22 @@ class MessagesController < ApplicationController
     redirect_to messages_path
   end
 
+  def show
+    find_message_history
+  end
+
   private
 
   def message_params
     params.require(:message).permit(:body, :sender_id, :receiver_id, :replied_to_id)
+  end
+
+  def find_message
+    @message = Message.find(params[:id])
+  end
+
+  def find_message_history
+    @messages = find_message.history.reverse unless params[:id].nil?
   end
 
 end
