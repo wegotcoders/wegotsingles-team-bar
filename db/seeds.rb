@@ -19,7 +19,7 @@
 )
 
 @tammy = Customer.create!(
-  email: 'tamy@t.com', 
+  email: 'tammy@t.com', 
   password: 'password', 
   password_confirmation: 'password'
 )
