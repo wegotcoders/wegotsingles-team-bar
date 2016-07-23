@@ -1,5 +1,5 @@
 Given(/^They are on their profile page$/) do
-  visit "/profiles/#{@profile.id}"
+  visit "/profiles/#{@customer.profile.id}"
 end
 
 Given(/^They are on the edit profile page$/) do
@@ -7,11 +7,11 @@ Given(/^They are on the edit profile page$/) do
 end
 
 Given(/^The edit biography field is prepopulated by their biography$/) do
-  find_field('profile_biography').value.should eq(@profile.biography)
+  find_field('profile_biography').value.should eq(@customer.profile.biography)
 end
 
 Given(/^The desires field is prepopulated with their disires$/) do
-  find_field('profile_desires').value.should eq(@profile.desires)
+  find_field('profile_desires').value.should eq(@customer.profile.desires)
 end
 
 When(/^They enter their drinking status$/) do
@@ -51,14 +51,14 @@ When(/^They click "([^"]*)"$/) do |button|
 end
 
 When(/^They upload the image$/) do
-  attach_file('profile[avatars][]', 'public/test_image/pokemon.jpg')
+  attach_file('profile[avatars][]', 'spec/images/cat.jpg')
 end
 
 Then(/^They see the message "([^"]*)"$/) do |message|
-  page.should have_selector ".alert", text: message
+  page.should have_selector "p", text: message
 end
 
 Then(/^They see their weight appear on the show profile page$/) do
-  visit "/profiles/#{@profile.id}"
+  visit "/profiles/#{@customer.profile.id}"
   expect(page).to have_css("p", text: "80.0kg")
 end

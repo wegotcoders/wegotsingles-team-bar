@@ -1,64 +1,64 @@
 Given(/^there are some registered profiles$/) do
   @dafman = Profile.create!({
-    username: "Dafman", 
-    gender: 0, 
-    ethnicity: 0, 
+    username: "Dafman",
+    gender: 0,
+    ethnicity: 0,
     date_of_birth: Date.new(1988, 03, 22), # 29
     town_city: "Hoddesdon",
     country: "United Kingdom",
     industry: 12
-  }) 
-  
+  })
+
   Profile.create!({
-    username: "Suppy", 
-    gender: 0, 
-    ethnicity: 4, 
+    username: "Suppy",
+    gender: 0,
+    ethnicity: 4,
     date_of_birth: Date.new(1984, 03, 22), # 32
     town_city: "Cheshunt",
     country: "United Kingdom",
     industry: 0
-  })  
-  
+  })
+
   Profile.create!({
-    username: "Tammy", 
-    gender: 1, 
-    ethnicity: 1, 
+    username: "Tammy",
+    gender: 1,
+    ethnicity: 1,
     date_of_birth: Date.new(1993, 03, 22), # 23
     town_city: "Hoddesdon",
     country: "United Kingdom",
     industry: 12
-  })  
-  
+  })
+
   Profile.create!({
-    username: "Sansa", 
-    gender: 1, 
-    ethnicity: 2, 
+    username: "Sansa",
+    gender: 1,
+    ethnicity: 2,
     date_of_birth: Date.new(1988, 03, 22), # 28
     town_city: "London",
     country: "United Kingdom",
     industry: 8
-  })  
-  
+  })
+
   Profile.create!({
-    username: "Fred", 
-    gender: 2, 
-    ethnicity: 3, 
+    username: "Fred",
+    gender: 2,
+    ethnicity: 3,
     date_of_birth: Date.new(1991, 03, 22), # 25
     town_city: "Hoddesdon",
     country: "United Kingdom",
     industry: 12
   })
-  
+
   Profile.create!({
-    username: "Sally", 
-    gender: 2, 
-    ethnicity: 0, 
+    username: "Sally",
+    gender: 2,
+    ethnicity: 0,
     date_of_birth: Date.new(1963, 03, 22), # 53
     town_city: "Hoddesdon",
     country: "United Kingdom",
     industry: 10
-  })  
-  
+  })
+
 end
 
 Given(/^they are on the search page$/) do
@@ -69,8 +69,8 @@ Given(/^they fill in the search form with an industry preference$/) do
   select("Legal", from: "search[industry]")
 end
 
-Given(/^they are logged in$/) do
-end
+#Given(/^they are logged in$/) do
+#end
 
 When(/^they fill in the search form with a gender preference$/) do
   select("Male", from: "search[gender]")
