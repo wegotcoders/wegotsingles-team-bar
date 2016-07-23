@@ -4,8 +4,7 @@ Given(/^A customer has previously registered$/) do
 end
 
 Given(/^They have created a profile$/) do
-  @profile = Profile.create!(:star_sign => "Leo", :customer => @customer, :biography => "This is a biography",
-                            :desires => "These are my desires")
+  @customer.profile.update(star_sign: "Leo", biography: "This is a biography", desires: "These are my desires", town_city: "Hoddesdon", country: "United Kingdom")
 end
 
 Given(/^A customer is signed in$/) do
@@ -17,7 +16,7 @@ end
 
 
 Given(/^They click on another customers profile$/) do
-  visit "/profiles/#{@profile.id}"
+  visit "/profiles/#{@customer.profile.id}"
 end
 
 Then(/^They see the customers profile details$/) do

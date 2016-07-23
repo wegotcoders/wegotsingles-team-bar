@@ -12,7 +12,6 @@ Feature: Searching
       And they click on 'Search'
     Then they should see a list of relevant results
 
-  @wip
   Scenario: Searching by industry
     Given they are on the search page
       And they fill in the search form with an industry preference
