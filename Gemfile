@@ -13,6 +13,8 @@ gem 'geocoder'
 gem "mini_magick"
 gem 'devise', '~> 3.4.0'
 gem 'rails_12factor'
+gem 'figaro'
+gem 'fog'
 
 group :development, :test do
   gem 'rspec-rails'
