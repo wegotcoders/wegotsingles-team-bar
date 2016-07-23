@@ -12,6 +12,7 @@ gem 'spring', group: :development
 gem 'geocoder'
 gem "mini_magick"
 gem 'devise', '~> 3.4.0'
+gem 'rails_12factor'
 
 group :development, :test do
   gem 'rspec-rails'

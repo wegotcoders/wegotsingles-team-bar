@@ -9,7 +9,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div class="wrapper" style="background-image: url('<%= @background_image %>')">
+  <div class="wrapper" id="<%= @background_image %>">
     <header class="container-fluid primary">
       <div class="row">
         <div class="col-sm-3">
@@ -32,7 +32,7 @@
     <% if current_customer %>
       <%= render "shared/nav.html.erb" %>
     <% end %>
-     
+
     <div class="flash-messages">
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
