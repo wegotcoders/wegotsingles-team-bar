@@ -23,6 +23,7 @@
           <%= message.body %>
         </p>
       </div>
+
       <%= form_for @message do |f| %>
         <fieldset>
           <div>
@@ -42,6 +43,9 @@
         <fieldset>
           <%= f.submit "Reply", id: ["message", message.id, "reply"].join("_"), class: "btn btn-info mt-10" %>
         </fieldset>
+        <div>
+          <%= link_to "View Conversation", message, id: ['message', message.id, 'view'].join('_') %>
+        </div>
       <% end %>
     </div>
   <% end %>

@@ -11,3 +11,4 @@ customer = Customer.create!(
   password: 'topsecret', 
   password_confirmation: 'topsecret'
 )
+
