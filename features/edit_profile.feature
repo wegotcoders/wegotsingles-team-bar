@@ -7,7 +7,6 @@ Feature: Edit profile
       And They are on their profile page
       And They click the "Edit Profile" link
 
-  @wip
   Scenario: A customer indicates whether they drink on their profile
     Given They are on the edit profile page
     When They enter their drinking status

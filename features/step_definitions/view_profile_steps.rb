@@ -4,7 +4,7 @@ Given(/^A customer has previously registered$/) do
 end
 
 Given(/^They have created a profile$/) do
-  @customer.profile.update(star_sign: "Leo", biography: "This is a biography", desires: "These are my desires", town_city: "Hoddesdon", country: "United Kingdom")
+  @customer.profile.update(star_sign: "Leo", biography: "This is a biography", desires: "These are my desires", town_city: "Hoddesdon", country: "United Kingdom", date_of_birth: Date.new(1993, 03, 22))
 end
 
 Given(/^A customer is signed in$/) do
