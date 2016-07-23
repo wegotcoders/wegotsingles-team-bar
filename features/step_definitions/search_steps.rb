@@ -69,6 +69,9 @@ Given(/^they fill in the search form with an industry preference$/) do
   select("Legal", from: "search[industry]")
 end
 
+#Given(/^they are logged in$/) do
+#end
+
 When(/^they fill in the search form with a gender preference$/) do
   select("Male", from: "search[gender]")
 end

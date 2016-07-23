@@ -1,0 +1,163 @@
+/* line 1, /Users/dannysantos/projects/wgc/0_projects/wegotsingles-team-bar/app/assets/stylesheets/header.scss */
+header.primary {
+  background-color: #1b75bc;
+  color: #fff;
+  height: 60px;
+  line-height: 60px;
+}
+/* line 9, /Users/dannysantos/projects/wgc/0_projects/wegotsingles-team-bar/app/assets/stylesheets/header.scss */
+header.primary img {
+  height: 60px;
+}
+/* line 14, /Users/dannysantos/projects/wgc/0_projects/wegotsingles-team-bar/app/assets/stylesheets/header.scss */
+header.primary ul li {
+  display: inline-block;
+}
+/* line 17, /Users/dannysantos/projects/wgc/0_projects/wegotsingles-team-bar/app/assets/stylesheets/header.scss */
+header.primary ul li a {
+  color: #fff;
+}
+/* line 3, /Users/dannysantos/projects/wgc/0_projects/wegotsingles-team-bar/app/assets/stylesheets/home.scss */
+.home-signup h2 {
+  text-align: center;
+}
+
+/* line 8, /Users/dannysantos/projects/wgc/0_projects/wegotsingles-team-bar/app/assets/stylesheets/home.scss */
+#home-background {
+  background-image: url(/images/dating.jpg);
+}
+
+/* line 12, /Users/dannysantos/projects/wgc/0_projects/wegotsingles-team-bar/app/assets/stylesheets/home.scss */
+#search-background {
+  background-image: url(/images/dating-2.jpg);
+}
+
+/* line 16, /Users/dannysantos/projects/wgc/0_projects/wegotsingles-team-bar/app/assets/stylesheets/home.scss */
+#profile-background {
+  background-image: url(/images/dating-3.jpg);
+}
+/* line 1, /Users/dannysantos/projects/wgc/0_projects/wegotsingles-team-bar/app/assets/stylesheets/nav.scss */
+nav {
+  text-align: center;
+}
+/* line 4, /Users/dannysantos/projects/wgc/0_projects/wegotsingles-team-bar/app/assets/stylesheets/nav.scss */
+nav .primary-nav {
+  float: none;
+  display: inline-block;
+}
+/* line 1, /Users/dannysantos/projects/wgc/0_projects/wegotsingles-team-bar/app/assets/stylesheets/search.scss */
+.search-container {
+  background-color: rgba(255, 255, 255, 0.9);
+  margin: 40px auto;
+  padding: 20px 60px 30px 60px;
+  float: none;
+}
+/* line 7, /Users/dannysantos/projects/wgc/0_projects/wegotsingles-team-bar/app/assets/stylesheets/search.scss */
+.search-container h2 {
+  text-align: center;
+}
+/* line 12, /Users/dannysantos/projects/wgc/0_projects/wegotsingles-team-bar/app/assets/stylesheets/search.scss */
+.search-container .search-form input[type="radio"] {
+  margin-right: 15px;
+}
+
+/* line 19, /Users/dannysantos/projects/wgc/0_projects/wegotsingles-team-bar/app/assets/stylesheets/search.scss */
+.search-results h3 {
+  margin: 0;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+ */
+
+
+.flash-messages {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 300px;
+  margin-left: -150px;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Lato', sans-serif;
+}
+
+.wrapper {
+  position: relative;
+  height: auto !important;
+  min-height: 100%;
+  background-size: cover;
+}
+
+.navbar {
+  margin-bottom: 0;
+}
+
+.content {
+  padding-bottom: 40px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #1b75bc;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+label {
+  margin-top: 10px;
+}
+
+.mt-10 {
+  margin-top: 10px;
+}
+
+.mt-20 {
+  margin-top: 20px;
+}
+
+.mb-10 {
+  margin-bottom: 10px;
+}
+
+.mb-20 {
+  margin-bottom: 20px;
+}
+
+.profile-thumbnail {
+  width: 100%;
+}
+
+.center-content {
+  background-color: rgba(255, 255, 255, 0.9);
+  margin: 40px auto;
+  padding: 20px 60px;
+  float: none;  
+}
+
+footer.primary {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  height: 40px;
+  line-height: 40px;
+}

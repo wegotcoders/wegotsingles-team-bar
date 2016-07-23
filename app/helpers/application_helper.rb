@@ -57,6 +57,18 @@ module ApplicationHelper
     ], get_pre_selected_option("distance"))
   end
 
+  def resource_name
+    :customer
+  end
+
+  def resource
+    @resource ||= Customer.new
+  end
+
+  def devise_mapping
+    @devise_mapping ||= Devise.mappings[:customer]
+  end
+
   def star_sign_options
     options_for_select([
       ['Select your star sign...', nil],

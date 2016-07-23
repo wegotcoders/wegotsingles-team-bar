@@ -4,6 +4,11 @@ class RegistrationsController < Devise::RegistrationsController
     Customer.new sign_up_params
     super
   end
+  
+  def new
+    @background_image = "log-in-background"
+    super
+  end
 
   private
 

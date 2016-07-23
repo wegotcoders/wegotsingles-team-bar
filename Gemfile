@@ -10,7 +10,9 @@ gem 'carrierwave' , github: 'carrierwaveuploader/carrierwave'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'spring', group: :development
 gem 'geocoder'
+gem "mini_magick"
 gem 'devise', '~> 3.4.0'
+gem 'rails_12factor'
 
 group :development, :test do
   gem 'rspec-rails'
