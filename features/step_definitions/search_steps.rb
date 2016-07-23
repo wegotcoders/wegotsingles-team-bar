@@ -1,64 +1,64 @@
 Given(/^there are some registered profiles$/) do
   @dafman = Profile.create!({
-    username: "Dafman", 
-    gender: 0, 
-    ethnicity: 0, 
+    username: "Dafman",
+    gender: 0,
+    ethnicity: 0,
     date_of_birth: Date.new(1988, 03, 22), # 29
     town_city: "Hoddesdon",
     country: "United Kingdom",
     industry: 12
-  }) 
-  
+  })
+
   Profile.create!({
-    username: "Suppy", 
-    gender: 0, 
-    ethnicity: 4, 
+    username: "Suppy",
+    gender: 0,
+    ethnicity: 4,
     date_of_birth: Date.new(1984, 03, 22), # 32
     town_city: "Cheshunt",
     country: "United Kingdom",
     industry: 0
-  })  
-  
+  })
+
   Profile.create!({
-    username: "Tammy", 
-    gender: 1, 
-    ethnicity: 1, 
+    username: "Tammy",
+    gender: 1,
+    ethnicity: 1,
     date_of_birth: Date.new(1993, 03, 22), # 23
     town_city: "Hoddesdon",
     country: "United Kingdom",
     industry: 12
-  })  
-  
+  })
+
   Profile.create!({
-    username: "Sansa", 
-    gender: 1, 
-    ethnicity: 2, 
+    username: "Sansa",
+    gender: 1,
+    ethnicity: 2,
     date_of_birth: Date.new(1988, 03, 22), # 28
     town_city: "London",
     country: "United Kingdom",
     industry: 8
-  })  
-  
+  })
+
   Profile.create!({
-    username: "Fred", 
-    gender: 2, 
-    ethnicity: 3, 
+    username: "Fred",
+    gender: 2,
+    ethnicity: 3,
     date_of_birth: Date.new(1991, 03, 22), # 25
     town_city: "Hoddesdon",
     country: "United Kingdom",
     industry: 12
   })
-  
+
   Profile.create!({
-    username: "Sally", 
-    gender: 2, 
-    ethnicity: 0, 
+    username: "Sally",
+    gender: 2,
+    ethnicity: 0,
     date_of_birth: Date.new(1963, 03, 22), # 53
     town_city: "Hoddesdon",
     country: "United Kingdom",
     industry: 10
-  })  
-  
+  })
+
 end
 
 Given(/^they are on the search page$/) do
@@ -90,8 +90,7 @@ end
 
 When(/^they filter by distance from a given location$/) do
   fill_in "search[town_city]", with: "Hoddesdon"
-  fill_in "search[country]", with: "UK",
-  industry: 7
+  fill_in "search[country]", with: "UK"
   select(5, from: 'search[distance]')
   click_on "Filter Results"
 end
@@ -137,6 +136,7 @@ Then(/^they should only see results relevant to the location filter$/) do
 end
 
 Then(/^they should only see results relevant to the proximity filter$/) do
+  save_and_open_page
   expect(page).to have_css("h3", text: "Dafman")
   expect(page).not_to have_css("h3", text: "Suppy")
   expect(page).to have_css("h3", text: "Tammy")
