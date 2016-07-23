@@ -43,8 +43,7 @@ end
 
 Then(/^They can view all of their messages$/) do
   expect(page).to have_css("h1", text: "Inbox")
-  expect(page).to have_css("h3", text: @customer_one.username)
-  expect(page).to have_css("h3", text: @customer_two.username)
+  expect(page).to have_css("strong", text: @customer_one.username)
   expect(page).to have_css("p", text: "Hello there")
   expect(page).to have_css("p", text: "Hi")
 end
