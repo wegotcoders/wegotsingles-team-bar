@@ -35,7 +35,7 @@ RSpec.describe Profile, type: :model do
 
   describe "image deleting" do
     before do
-      @profile2.avatars=[Faker::Avatar.image]
+      @profile2.avatars = [Faker::Avatar.image]
       @profile2.avatars.first.store!
     end
 

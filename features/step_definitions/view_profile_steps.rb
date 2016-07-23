@@ -1,6 +1,6 @@
 Given(/^A customer has previously registered$/) do
   @customer = Customer.create!(email: Faker::Internet.email,
-    password: "password",  password_confirmation: "password")
+    password: "password",  password_confirmation: "password", username: Faker::Name.first_name)
 end
 
 Given(/^They have created a profile$/) do
