@@ -39,32 +39,48 @@
         <div class="col-sm-3">
           <% if profile_result.avatars.any? %>
             <% profile_result.avatars.each do |image| %> 
-              <%= image_tag(image.url, class: "img-responsive", alt: "Cinque Terre", width: "304", height: "236") %>
+              <a href="/profiles/<%= profile_result.id %>">
+                <%= image_tag(image.url, class: "img-responsive", alt: "Cinque Terre", width: "304", height: "236") %>
+              </a>
               <% break %>
             <% end %>
           <% else %>
-            <%= image_tag "placeholder.png", class: "profile-thumbnail" %>
+            <a href="/profiles/<%= profile_result.id %>">
+              <%= image_tag "placeholder.png", class: "profile-thumbnail" %>
+            </a>
           <% end %>
         </div>
          
         <div class="col-sm-9">
-          <h3><%= profile_result.username %></h3>
+          <a href="/profiles/<%= profile_result.id %>">
+            <h3><%= profile_result.username %></h3>
+          </a>
           
           <dl>
-            <dt>Age</dt>
-            <dd></dd>
+            <% unless profile_result.age.blank? %>
+              <dt>Age</dt>
+              <dd><%= profile_result.age %></dd>
+            <% end %>
             
-            <dt>Location</dt>
-            <dd><%= profile_result.geocoder_input %></dd>
-            
-            <dt>Gender</dt>
-            <dd><%= profile_result.gender %></dd>
-            
-            <dt>Ethnicity</dt>
-            <dd><%= profile_result.ethnicity %></dd>
-            
-            <dt>Biography</dt>
-            <dd><%= profile_result.biography %></dd>
+            <% unless profile_result.geocoder_input.blank? %>
+              <dt>Location</dt>
+              <dd><%= profile_result.geocoder_input %></dd>
+            <% end %>
+
+            <% unless profile_result.gender.blank? %>
+              <dt>Gender</dt>
+              <dd><%= profile_result.gender %></dd>
+            <% end %>
+
+            <% unless profile_result.ethnicity.blank? %>
+              <dt>Ethnicity</dt>
+              <dd><%= profile_result.ethnicity %></dd>
+            <% end %>
+
+            <% unless profile_result.biography.blank? %>
+              <dt>Biography</dt>
+              <dd><%= profile_result.biography %></dd>
+            <% end %>
           </dl>
         </div> 
       </div>
