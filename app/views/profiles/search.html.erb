@@ -1,7 +1,7 @@
 <div class="center-content search-container col-sm-6 col-sm-offset-3">
   <h2>Search Profiles:</h2>
 
-  <%= form_tag('/profiles/search_results', method: :get, class: "search-form col-sm-8 col-sm-offset-2") %>
+  <%= form_tag('/profiles/search_results', method: :get, class: "search-form col-sm-8 col-sm-offset-2") do %>
     <fieldset>
       <%= label_tag("search[gender]", "Gender", for: "search[gender]") %>
       <%= select_tag("search[gender]", gender_options, class: "form-control") %>

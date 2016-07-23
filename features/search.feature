@@ -40,10 +40,7 @@ Feature: Searching
     Then they should only see results relevant to the location filter
 
   Scenario: Filtering by proximity to current user
-    Given A customer has previously registered
-      And They have created a profile
-      And A customer is signed in
-      And they are on the search page
+    Given they are on the search page
     When they fill in the search form with a proximity preference
       And they click on 'Search'
     Then they should only see results relevant to the proximity filter

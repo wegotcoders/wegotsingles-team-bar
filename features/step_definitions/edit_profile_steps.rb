@@ -55,7 +55,7 @@ When(/^They upload the image$/) do
 end
 
 Then(/^They see the message "([^"]*)"$/) do |message|
-  page.should have_selector ".alert", text: message
+  page.should have_selector "p", text: message
 end
 
 Then(/^They see their weight appear on the show profile page$/) do
