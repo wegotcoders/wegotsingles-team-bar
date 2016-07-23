@@ -19,12 +19,12 @@ RSpec.describe Message, type: :model do
 
     @message = Message.new(sender: @sender, receiver: @receiver, body: "Hello")
     
-    @receiver.messages << @message
+    @receiver.received_messages << @message
   end
   
   describe 'receiving messages' do
     it 'should show up in the receivers inbox' do
-      expect(@receiver.messages).to include(@message)
+      expect(@receiver.received_messages).to include(@message)
     end
   end
 
@@ -32,7 +32,7 @@ RSpec.describe Message, type: :model do
     it "should allow a customer to send a reply to a messge that they have received" do
       reply = Message.create!(sender: @receiver, receiver: @sender, body: "Hi", replied_to_id: @message.id)
       expect(reply.replied_to_id).to eq(@message.id)
-      expect(@sender.messages).to include(reply)
+      expect(@sender.received_messages).to include(reply)
     end
   end
 end
