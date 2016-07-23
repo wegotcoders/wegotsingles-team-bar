@@ -21,3 +21,6 @@
 
 # Ignore the image upload files
 public/avatars
+
+# Ignore application configuration
+/config/application.yml
